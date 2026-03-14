@@ -69,7 +69,7 @@ When behind a reverse proxy (e.g. Caddy, nginx) that terminates SSL and forwards
 - **PostgreSQL 16** (Alpine) — FrankBoard’s default
 - **Healthcheck**: `pg_isready`; app waits for `condition: service_healthy` before start
 - **Auto-migrations**: Kanboard runs schema migrations on first request when `DB_RUN_MIGRATIONS` is true (default)
-- **Connection**: App uses `DATABASE_URL=postgres://user:pass@db/dbname`; host `db` is the Compose service name
+- **Connection**: App uses `DB_DRIVER`, `DB_USERNAME`, `DB_PASSWORD`, `DB_HOSTNAME=db`, `DB_NAME`, `DB_PORT` (explicit vars avoid DATABASE_URL parse issues with special chars in passwords)
 
 ---
 

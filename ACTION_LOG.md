@@ -120,4 +120,23 @@ All meaningful actions during development are logged here.
 
 ---
 
-**Summary stats**: 4 log entries | 19 files created/updated | Phase 1 (VPS-first) complete
+### Action: Fix FrankBoard DB connection — use DB_* instead of DATABASE_URL
+
+**Timestamp**: 2025-03-14  
+**Context**: FrankBoard container unhealthy on VPS. Logs showed `Undefined array key "driver"` in app/common.php — PicoDb UrlParser failed to parse DATABASE_URL (parse_url returns false, often due to special chars in password).
+
+**Actions performed**:
+1. Switched docker-compose from DATABASE_URL to explicit DB_* env vars (DB_DRIVER, DB_USERNAME, DB_PASSWORD, DB_HOSTNAME, DB_NAME, DB_PORT)
+2. Updated docs/deployment/vps-docker-staging.md — troubleshooting note for DATABASE_URL parse failures, DB_* as workaround
+
+**Files affected**:
+- `docker-compose.yml` (environment: DB_* vars)
+- `docs/deployment/vps-docker-staging.md` (troubleshooting)
+
+**Root cause**: DATABASE_URL URL parsing fails on certain passwords; DB_* vars bypass UrlParser and are passed directly to PHP via Kanboard's env.conf.
+
+**Next steps**: Pull on VPS, `docker compose down && docker compose up -d`; verify healthcheck passes and app loads.
+
+---
+
+**Summary stats**: 5 log entries | 21 files created/updated | Phase 1 (VPS-first) complete
