@@ -76,8 +76,9 @@ When behind a reverse proxy (e.g. Caddy, nginx) that terminates SSL and forwards
 ## 6. Startup Workflow
 
 ```bash
-# On VPS: clone or copy FrankBoard repo
-git clone <frankboard-repo-url> frankboard
+# On VPS: clone FrankBoard (replace YOUR_USERNAME with your GitHub username)
+# Or use rsync/scp if the repo is not yet on GitHub — see docs/CREATE_REMOTE_AND_PUSH.md
+git clone https://github.com/YOUR_USERNAME/FrankBoard.git frankboard
 cd frankboard
 
 # Create environment

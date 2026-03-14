@@ -97,4 +97,27 @@ All meaningful actions during development are logged here.
 
 ---
 
-**Summary stats**: 3 log entries | 17 files created/updated | Phase 1 (VPS-first) complete
+### Action: Prepare remote repo and push
+
+**Timestamp**: 2025-03-14  
+**Context**: User requested creating the remote and pushing. GitHub CLI not installed; no GITHUB_TOKEN in env.
+
+**Actions performed**:
+1. Committed all FrankBoard changes (14 files, Phase 1 foundation)
+2. Renamed `origin` → `upstream` (Kanboard source)
+3. Added `origin` → `https://github.com/frankbryant/FrankBoard.git`
+4. Attempted `git push -u origin main` — timed out (likely awaiting auth)
+5. Created `docs/CREATE_REMOTE_AND_PUSH.md` — step-by-step: create repo on GitHub, set URL, push
+6. Updated `docs/deployment/vps-docker-staging.md` — replaced placeholder with `https://github.com/YOUR_USERNAME/FrankBoard.git` example
+
+**Files affected**:
+- `docs/CREATE_REMOTE_AND_PUSH.md` (new)
+- `docs/deployment/vps-docker-staging.md` (updated)
+
+**Blockers**: Repo must be created on GitHub manually (or via gh/API with token). Push requires auth (credential manager or PAT).
+
+**Next steps**: Follow docs/CREATE_REMOTE_AND_PUSH.md; after push, use the repo URL in VPS clone instructions.
+
+---
+
+**Summary stats**: 4 log entries | 19 files created/updated | Phase 1 (VPS-first) complete
