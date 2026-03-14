@@ -1,0 +1,68 @@
+# FrankBoard - Docker Compose (PostgreSQL)
+# Primary compose for VPS-first deployment. Run on a VPS with Docker Compose v2+.
+# Based on Kanboard docker-compose.postgres.yml, adapted for FrankBoard.
+#
+# Usage (on VPS):
+#   cp .env.example .env
+#   # Edit .env: set POSTGRES_PASSWORD for production
+#   docker compose up -d
+#
+# Access: http://<vps-ip>:8080 (or via reverse proxy)
+# Default login: admin / admin (change on first run)
+#
+# See docs/deployment/vps-docker-staging.md for full deployment guide.
+name: frankboard
+
+services:
+  app:
+    image: ${KANBOARD_IMAGE:-kanboard/kanboard:v1.2.51}
+    container_name: frankboard
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:80"
+    volumes:
+      - app_data:/var/www/app/data
+      - app_plugins:/var/www/app/plugins
+      - certs:/etc/nginx/ssl
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-kanboard}:${POSTGRES_PASSWORD:-kanboard-secret}@db/${POSTGRES_DB:-kanboard}
+      PLUGIN_INSTALLER: ${PLUGIN_INSTALLER:-false}
+      REVERSE_PROXY_AUTH: ${REVERSE_PROXY_AUTH:-false}
+      TRUSTED_PROXY_NETWORKS: ${TRUSTED_PROXY_NETWORKS:-}
+      TRUSTED_PROXY_HEADERS: ${TRUSTED_PROXY_HEADERS:-}
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/healthcheck.php"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  db:
+    image: postgres:16-alpine
+    container_name: frankboard-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-kanboard}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-kanboard-secret}
+      POSTGRES_DB: ${POSTGRES_DB:-kanboard}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-kanboard} -d ${POSTGRES_DB:-kanboard}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 15s
+
+volumes:
+  app_data:
+    driver: local
+  app_plugins:
+    driver: local
+  certs:
+    driver: local
+  db_data:
+    driver: local
