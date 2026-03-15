@@ -5,7 +5,7 @@
 
 ## Current Phase
 
-**Wave 4 product polish** — Empty states, search/results, mobile responsiveness, admin/settings consistency, theme fixes. Ready for deploy and verification.
+**Static site deployed to frankboard.com** — Marketing site live at frankboard.com. Six pages, plain HTML/CSS. Separate from app at app.frankboard.com. See `docs/site/site-deploy-execution-v1.md`, `docs/site/site-post-deploy-checklist-v1.md`.
 
 ## Verified in Staging (VPS 66.179.208.122)
 
@@ -18,7 +18,7 @@
 | Wave 1 CSS deployed | ✓ Centered card, FrankBoard branding, typography |
 | Wave 2 CSS deployed | ✓ Deployed |
 | Wave 3 CSS deployed | ✓ Verified (board, task card, detail, form) |
-| Wave 4 CSS deployed | Pending deploy |
+| Wave 4 CSS deployed | ✓ Deployed |
 
 ## Completed Work
 
@@ -34,12 +34,18 @@
 | **Wave 3 implementation** | **2025-03-15** | **Board, task cards, task detail, task forms; see `docs/product/wave-3-implementation-notes.md`** |
 | **Commercial packaging v1** | **2025-03-15** | **Product positioning, editions, migration story, revenue model; see `docs/business/`** |
 | **Wave 4 implementation** | **2025-03-15** | **Empty states, search polish, responsive, admin consistency, theme fixes; see `docs/product/wave-4-implementation-notes.md`** |
+| **Launch foundation messaging v1** | **2025-03-15** | **Homepage, edition comparison, migration, why-frankboard, pricing, support page architecture; see `docs/marketing/`** |
+| **Launch copy drafts v1** | **2025-03-15** | **Real website copy for all launch pages; see `docs/marketing-copy/`** |
+| **Static launch site architecture v1** | **2025-03-15** | **Site architecture, file structure, design system, deployment; see `docs/site/`** |
+| **Static launch site v1 implementation** | **2025-03-15** | **Home, Editions, Migrate, Why, Pricing, Support; `site/`; see `docs/site/site-build-notes-v1.md`** |
+| **Homepage card alignment refinement** | **2025-03-15** | **Desktop: benefits/trust/editions-teaser constrained to 720px, section titles centered; see `docs/site/homepage-alignment-pass-notes.md`** |
+| **Static site deployed to frankboard.com** | **2025-03-15** | **Nginx at /var/www/frankboard-site; www→apex redirect; app.frankboard.com config ready; see `docs/site/site-deploy-execution-v1.md`** |
 
 ## Current Repo/Runtime State
 
 - **Codebase**: Wave 1 + Wave 2 + Wave 3 + Wave 4 CSS changes in repo; Kanboard v1.2.51 fork
 - **Runtime**: FrankBoard live on 66.179.208.122:8080 (frankboard:wave1 image)
-- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2/3/4 implementation notes, business packaging (docs/business/)
+- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2/3/4 implementation notes, business packaging (docs/business/), launch marketing (docs/marketing/), launch copy (docs/marketing-copy/), site architecture (docs/site/)
 
 ## Blockers
 
@@ -47,9 +53,9 @@
 
 ## Next Recommended Step
 
-1. **Deploy Wave 4** to staging; verify per `docs/product/wave-4-verification.md`
-2. Review `docs/business/` packaging docs; decide on edition boundaries and launch sequence
-3. Optional: Verify drag-and-drop on board, dark/auto themes
+1. Verify frankboard.com in browser (DNS via Cloudflare); run Certbot if origin SSL needed for Full/Strict
+2. Enable app.frankboard.com when ready: `ln -s /etc/nginx/sites-available/app.frankboard.com.conf /etc/nginx/sites-enabled/` then `nginx -t && systemctl reload nginx`
+3. Complete post-deploy checklist per `docs/site/site-post-deploy-checklist-v1.md`
 
 ## Future Phases (Preview)
 

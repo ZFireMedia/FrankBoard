@@ -420,4 +420,215 @@ All meaningful actions during development are logged here.
 
 ---
 
-**Summary stats**: 13 log entries | 68 files created/updated | Wave 4 implementation complete
+### Action: Disable Codeberg mirror, deploy Wave 4
+
+**Timestamp**: 2025-03-15  
+**Context**: Codeberg mirror workflow not working; deploy Wave 4 + commercial packaging to staging.
+
+**Actions performed**:
+1. Disabled Codeberg mirror — `.github/workflows/codeberg_mirror.yml`: added `if: false` to mirror job
+2. Committed and pushed: mirror disable, Wave 4 CSS, commercial packaging docs
+3. Deployed via `.\scripts\run-vps.ps1 -DeployWave1` — git pull, docker build, containers recreated
+4. Staging live at http://66.179.208.122:8080 with Wave 4
+
+**Files affected**:
+- .github/workflows/codeberg_mirror.yml
+- ACTION_LOG.md (this entry)
+
+**Results**: Mirror disabled; Wave 4 deployed to staging.
+
+**Next steps**: Verify Wave 4 per wave-4-verification.md.
+
+---
+
+### Action: Launch Foundation Messaging and Page Architecture v1
+
+**Timestamp**: 2025-03-15  
+**Context**: First launch-facing marketing and product-page foundation. Move from internal modernization to external positioning and go-to-market. Documentation/strategy only; no website implementation.
+
+**Actions performed**:
+1. **homepage-messaging-v1.md** — Homepage goal, target audience, hero/subhead options, benefit blocks, trust blocks, CTA recommendations, section order
+2. **edition-comparison-v1.md** — Page purpose, edition names, comparison table structure, differentiators, emphasis for Community vs Pro vs Cloud
+3. **migration-page-v1.md** — Target audience, purpose, reassurance messaging, compatibility promises, page structure, CTAs
+4. **why-frankboard-exists-v1.md** — Story angle, positioning, problem solved, deliberate boundaries, page structure
+5. **pricing-structure-v1.md** — Page purpose, pricing model recommendation, structure, FAQ topics, what to include/exclude initially
+6. **support-page-v1.md** — Purpose, support channels/tiers, self-serve structure, paid support positioning, section recommendations
+7. Updated PROJECT_STATUS.md — Current phase, Completed Work, Documentation, Next steps
+8. Updated ACTION_LOG.md — this entry
+
+**Files affected**:
+- docs/marketing/homepage-messaging-v1.md (new)
+- docs/marketing/edition-comparison-v1.md (new)
+- docs/marketing/migration-page-v1.md (new)
+- docs/marketing/why-frankboard-exists-v1.md (new)
+- docs/marketing/pricing-structure-v1.md (new)
+- docs/marketing/support-page-v1.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**Assumptions for later validation**:
+- Hero emphasis: "Simple work board for small teams" vs "Modern Kanboard" — A/B test at launch
+- Pro pricing: flat annual preferred; tiered by team size as alternative
+- Migration page: emphasize "backup + config swap" as primary path; plugin testing as secondary
+- Support: Community (GitHub/docs) vs Pro/Cloud (email/SLA) — no live chat initially
+
+**Results**: Launch foundation messaging v1 complete. All docs coherent with business strategy. Page outlines practical for real launch site.
+
+**Next steps**: Review docs/marketing/; implement site when ready; validate hero/subhead with target users.
+
+---
+
+### Action: Launch Copy Drafts v1
+
+**Timestamp**: 2025-03-15  
+**Context**: Turn approved launch foundation strategy into first-pass real website copy. Documentation only; no site implementation.
+
+**Actions performed**:
+1. **homepage-copy-v1.md** — Hero, subhead, CTAs, 4 benefit sections, trust block, edition teaser, migration block, footer CTA
+2. **edition-comparison-copy-v1.md** — Intro, edition descriptions, comparison table content, CTA copy per edition, short FAQ
+3. **migration-page-copy-v1.md** — Headline/subhead, reassurance intro, step-by-step migration, compatibility, plugin caveat, support CTA
+4. **why-frankboard-exists-copy-v1.md** — Headline/subhead, founding story, problem solved, deliberate boundaries, closing CTA
+5. **pricing-page-copy-v1.md** — Headline/subhead, Community/Pro/Cloud copy blocks, FAQ, CTA, "coming soon" notes for Pro/Cloud
+6. **support-page-copy-v1.md** — Headline/subhead, self-serve, Community, Pro/Cloud, services, CTA
+7. Updated PROJECT_STATUS.md, ACTION_LOG.md
+
+**Files affected**:
+- docs/marketing-copy/homepage-copy-v1.md (new)
+- docs/marketing-copy/edition-comparison-copy-v1.md (new)
+- docs/marketing-copy/migration-page-copy-v1.md (new)
+- docs/marketing-copy/why-frankboard-exists-copy-v1.md (new)
+- docs/marketing-copy/pricing-page-copy-v1.md (new)
+- docs/marketing-copy/support-page-copy-v1.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**Assumptions for validation**:
+- Pro/Cloud CTAs use "Contact us" and "Coming soon" — update when live
+- Migration steps assume standard Kanboard backup procedure
+- Support contact channels: placeholder email/URL until configured
+
+**Results**: Launch copy drafts v1 complete. All pages could be published with minimal editing.
+
+**Next steps**: Review copy; implement launch site; update Pro/Cloud CTAs when editions are live.
+
+---
+
+### Action: Static Launch Site Architecture for FrankBoard.com
+
+**Timestamp**: 2025-03-15  
+**Context**: Design architecture and file structure for first static launch site at frankboard.com. Documentation only; no site build. Site separate from core product app.
+
+**Actions performed**:
+1. **site-architecture-v1.md** — Site purpose, page inventory (6 pages), content hierarchy, navigation model, shared layout, CTA strategy, marketing-site vs app relationship
+2. **site-file-structure-v1.md** — Folder/file structure, page naming, asset org, metadata/SEO, robots/sitemap
+3. **site-design-system-v1.md** — Visual direction, typography, spacing, components, buttons, icons, avoid list
+4. **site-deployment-v1.md** — Static deploy on VPS, reverse proxy, domain/path, SSL/caching, separation from app, update workflow
+5. Updated PROJECT_STATUS.md, ACTION_LOG.md
+
+**Files affected**:
+- docs/site/site-architecture-v1.md (new)
+- docs/site/site-file-structure-v1.md (new)
+- docs/site/site-design-system-v1.md (new)
+- docs/site/site-deployment-v1.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**Architecture decisions**:
+- Static-first: HTML/CSS, no CMS, no heavy JS framework
+- Plain HTML + CSS or minimal SSG (e.g. 11ty) — avoid React/Vue unless justified
+- Site at frankboard.com; app at app.frankboard.com or separate subdomain when ready
+- Deployment: static files served by nginx/Caddy; separate from Docker app stack
+- Content: copy lives in docs/marketing-copy/; site consumes or mirrors during build
+
+**Results**: Static launch site architecture v1 complete. Ready for implementation.
+
+**Next steps**: Implement site per docs/site/; deploy to frankboard.com.
+
+---
+
+### Action: Static Launch Site v1 Implementation
+
+**Timestamp**: 2025-03-15  
+**Context**: Build FrankBoard.com static launch site per approved architecture, copy drafts, and design system. Plain HTML + CSS, no framework.
+
+**Actions performed**:
+1. **site/assets/css/main.css** — Design system (--bg #fafaf9, --text #1c1917, --primary #2563eb, spacing, BEM components)
+2. **site/index.html** — Homepage: hero, benefits, trust, edition teaser, migration teaser, footer CTAs
+3. **site/editions/index.html** — Editions intro, Community/Pro/Cloud, comparison table, FAQ, CTAs
+4. **site/migrate/index.html** — Reassurance, migration steps, compatibility, plugin caveat, CTA
+5. **site/why/index.html** — Story, product philosophy, what we solve/won't do, CTA
+6. **site/pricing/index.html** — Community/Pro/Cloud cards (Pro/Cloud "Coming soon"), FAQ, CTAs
+7. **site/support/index.html** — Self-serve, Community, Pro/Cloud support, services, CTA
+8. **site/assets/img/favicon.svg** — Favicon (F mark)
+9. **site/robots.txt** — Allow /, Sitemap URL
+10. **site/sitemap.xml** — All 6 pages, lastmod 2025-03-15
+11. **docs/site/site-build-notes-v1.md** — Files, design decisions, placeholders
+12. **docs/site/site-deploy-checklist-v1.md** — Pre/post-deploy verification
+
+**Files affected**:
+- site/index.html, site/editions/index.html, site/migrate/index.html, site/why/index.html, site/pricing/index.html, site/support/index.html (new)
+- site/assets/css/main.css, site/assets/img/favicon.svg (new)
+- site/robots.txt, site/sitemap.xml (new)
+- docs/site/site-build-notes-v1.md, docs/site/site-deploy-checklist-v1.md (new)
+
+**Design**: Calm, clear, trustworthy. Linear-level restraint, simpler and warmer. No gradients, system fonts, warm neutral background.
+
+**Results**: Static site v1 complete. Ready for deployment to frankboard.com.
+
+**Next steps**: Deploy per site-deploy-checklist-v1.md; verify responsive; add og-default.png when available.
+
+---
+
+### Action: Homepage Card Alignment Refinement Pass
+
+**Timestamp**: 2025-03-15  
+**Context**: Desktop-focused layout correction. Card groups (benefits, trust) felt left-biased relative to centered hero. Small refinement only; no redesign.
+
+**Actions performed**:
+1. Added `--max-width-cards: 840px` (between hero 720px and wide 960px)
+2. Benefits: `.benefits .container` → 840px at min-width: 960px
+3. Trust: `.trust .container` → 840px at min-width: 960px; `.trust .section__title` text-align: center
+4. Editions teaser: same container constraint; section__title and section__cta text-align: center
+5. Created docs/site/homepage-alignment-pass-notes.md
+
+**Files affected**:
+- site/assets/css/main.css (CSS variable, desktop media queries)
+- docs/site/homepage-alignment-pass-notes.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**Breakpoints**: Only min-width: 960px affected. Mobile and tablet unchanged.
+
+**Results**: Card groups feel more centered and compositionally balanced beneath hero. No regression in nav, CTA rows, footer.
+
+**Next steps**: Deploy when ready; verify at 960px+ viewport.
+
+---
+
+### Action: Deploy Static Site to frankboard.com
+
+**Timestamp**: 2025-03-15  
+**Context**: Deploy FrankBoard static marketing site to frankboard.com on VPS; keep separate from app at app.frankboard.com.
+
+**Actions performed**:
+1. Created `config/nginx/frankboard.com.conf` — frankboard.com + www redirect to canonical
+2. Created `config/nginx/app.frankboard.com.conf` — app proxy (not yet enabled)
+3. Created `scripts/deploy-site.sh` — copies site/ to /var/www/frankboard-site, installs nginx config
+4. Added `-DeploySite` to run-vps.ps1
+5. Committed and pushed; ran `.\scripts\run-vps.ps1 -DeploySite`
+6. VPS: git pull, deploy-site.sh, nginx reload
+7. Created docs/site/site-deploy-execution-v1.md, site-post-deploy-checklist-v1.md
+
+**Files affected**:
+- config/nginx/frankboard.com.conf, app.frankboard.com.conf (new)
+- scripts/deploy-site.sh (new)
+- scripts/run-vps.ps1 (DeploySite param)
+- docs/site/site-deploy-execution-v1.md, site-post-deploy-checklist-v1.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**Deployment path**: /var/www/frankboard-site on VPS 66.179.208.122  
+**Verification**: curl -sI -H 'Host: frankboard.com' http://127.0.0.1/ → 200 OK (homepage, editions, robots.txt, sitemap.xml, CSS, favicon)
+
+**Results**: Static site live. App unchanged. www → apex redirect configured. Cloudflare/DNS must point frankboard.com to VPS for public access.
+
+**Next steps**: Verify https://frankboard.com in browser (requires DNS); run certbot for origin SSL if Full/Strict; enable app.frankboard.com when ready.
+
+---
+
+**Summary stats**: 20 log entries | Static site deployed to frankboard.com
