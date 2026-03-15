@@ -277,4 +277,32 @@ All meaningful actions during development are logged here.
 
 ---
 
+### Action: Wave 2 Interior UI Foundation
+
+**Timestamp**: 2025-03-15  
+**Context**: Implement second UI wave per scope — modals, forms, dashboard, header, panels. CSS/template-only.
+
+**Actions performed**:
+1. Modal polish — overlay 0.45 opacity, content padding 20–24px, box border/shadow, 8px radius
+2. Form rhythm — labels 16px/4px, inputs 32px height, form-actions border-top, help-text spacing
+3. Header — padding 8–16px, border via --header-border-color
+4. Panel — border-radius via --surface-radius (6px)
+5. Dashboard — page-header spacing, empty-state alert padding, table-list row/header padding
+6. Theme vars — --header-border-color, --surface-radius, --modal-overlay-color (light/dark/auto)
+7. Base .page — margin 16px, padding-top 8, max-width 1400
+
+**Files affected**:
+- assets/css/src/modal.css, form.css, header.css, panel.css, page_header.css
+- assets/css/src/dashboard.css, project.css, table_list.css, base.css
+- assets/css/src/themes/light.css, dark.css, auto.css
+- docs/product/wave-2-implementation-notes.md (new)
+- docs/product/wave-2-scope-review.md (new)
+- PROJECT_STATUS.md (updated)
+
+**Results**: Wave 2 ready. Deploy and verify pending.
+
+**Next steps**: Deploy to staging, verify dashboard, modals, header in light/dark/auto.
+
+---
+
 **Summary stats**: 9 log entries | 42 files created/updated | VPS SSH automation ready (pending automation key)

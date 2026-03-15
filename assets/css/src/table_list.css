@@ -1,15 +1,15 @@
+/* FrankBoard Wave 2: project list / table-list shell */
 .table-list {
-    font-size: 0.85em;
-    margin-bottom: 20px
+    font-size: 0.9em;
+    margin-bottom: 24px;
 }
 
 .table-list-header {
     background: var(--table-list-header-background-color);
     border: 1px solid var(--table-list-header-border-color);
-    border-radius: 5px 5px 0 0;
-    line-height: 28px;
-    padding-left: 3px;
-    padding-right: 3px
+    border-radius: var(--surface-radius, 6px) var(--surface-radius, 6px) 0 0;
+    line-height: 32px;
+    padding: 8px 14px 8px 14px;
 }
 
 .table-list-header a {
@@ -35,8 +35,7 @@
 }
 
 .table-list-row {
-    padding-left: 3px;
-    padding-right: 3px;
+    padding: 10px 14px;
     border-bottom: 1px solid var(--table-list-border-color);
     border-right: 1px solid var(--table-list-border-color);
 }

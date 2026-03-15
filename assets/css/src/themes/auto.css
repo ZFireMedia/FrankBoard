@@ -1,6 +1,9 @@
 :root {
     --body-background-color: #FFF;
     --header-background-color: #fbfbfb;
+    --header-border-color: #e8e8e8;
+    --surface-radius: 6px;
+    --modal-overlay-color: rgba(0, 0, 0, 0.45);
 
     --color-primary: #333;
     --color-light: #999;
@@ -135,6 +138,8 @@ html {
     :root {
         --body-background-color: #222;
         --header-background-color: #222;
+        --header-border-color: rgba(255, 255, 255, 0.08);
+        --modal-overlay-color: rgba(0, 0, 0, 0.65);
 
         --color-primary: #a0a0a0;
         --color-light: #a0a0a0;

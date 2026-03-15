@@ -1,10 +1,12 @@
+/* FrankBoard Wave 2: project creation modal / form polish */
 .js-project-creation-options {
     max-width: 500px;
-    border-left: 3px dotted #efefef;
-    margin-top: 20px;
-    padding-left: 15px;
-    padding-bottom: 5px;
-    padding-top: 5px
+    border-left: 3px solid var(--panel-border-color);
+    margin-top: 24px;
+    padding-left: 20px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    border-radius: 0 var(--surface-radius, 6px) var(--surface-radius, 6px) 0;
 }
 
 .project-overview-columns {

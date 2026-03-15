@@ -1,9 +1,9 @@
 header {
     display: flex;
     flex-wrap: wrap;
-    padding: 5px 10px;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #dedede;
+    padding: 10px 16px 12px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--header-border-color);
     background-color: var(--header-background-color);
 }
 

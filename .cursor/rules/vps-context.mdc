@@ -1,0 +1,32 @@
+---
+description: FrankBoard VPS deployment context for remote commands
+alwaysApply: true
+---
+
+# VPS Context
+
+**Host**: frankboard-vps (66.179.208.122)  
+**User**: root  
+**Repo path**: /root/frankboard  
+**App URL**: http://66.179.208.122:8080
+
+## Remote commands
+
+Use `scripts/run-vps.ps1` for agent-initiated SSH (requires automation key — see docs/deployment/ssh-vps-setup.md):
+
+```powershell
+.\scripts\run-vps.ps1 -Command "cd /root/frankboard && docker compose ps"
+.\scripts\run-vps.ps1 -DeployWave1
+```
+
+Or direct SSH (when key works interactively):
+
+```powershell
+ssh -o BatchMode=yes frankboard-vps "cd /root/frankboard && <command>"
+```
+
+## Key files
+
+- `docs/deployment/vps-context.md` — canonical reference
+- `docs/deployment/ssh-vps-setup.md` — SSH setup, automation key for agent
+- `scripts/deploy-wave1.sh` — runs on VPS (build + compose)

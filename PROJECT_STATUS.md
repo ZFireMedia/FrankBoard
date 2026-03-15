@@ -1,11 +1,11 @@
 # FrankBoard — Project Status
 
 **Owner**: Frank Bryant  
-**Last Updated**: 2025-03-14
+**Last Updated**: 2025-03-15
 
 ## Current Phase
 
-**Wave 1 deployed to staging** — UI modernization live. Agent SSH operational for deploys/maintenance.
+**Wave 2 implementation complete** — Interior UI foundation (modals, forms, dashboard, header, panels) ready for deploy and verification.
 
 ## Verified in Staging (VPS 66.179.208.122)
 
@@ -16,6 +16,7 @@
 | Admin password change | Done |
 | Docker stack healthy | frankboard + frankboard-db running |
 | Wave 1 CSS deployed | ✓ Centered card, FrankBoard branding, typography |
+| Wave 2 CSS deployed | Pending deploy |
 
 ## Completed Work
 
@@ -27,12 +28,13 @@
 | UI modernization roadmap | 2025-03-14 | `docs/product/ui-modernization-roadmap-v1.md` |
 | First implementation wave | 2025-03-14 | `docs/product/first-implementation-wave-v1.md` |
 | **Wave 1 implementation** | **2025-03-14** | **Typography, login polish, focus states, contrast; see `docs/product/wave-1-implementation-notes.md`** |
+| **Wave 2 implementation** | **2025-03-15** | **Modal, form, dashboard, header, panel polish; see `docs/product/wave-2-implementation-notes.md`** |
 
 ## Current Repo/Runtime State
 
-- **Codebase**: Wave 1 CSS/template changes in repo; Kanboard v1.2.51 fork
+- **Codebase**: Wave 1 + Wave 2 CSS changes in repo; Kanboard v1.2.51 fork
 - **Runtime**: FrankBoard live on 66.179.208.122:8080 (frankboard:wave1 image)
-- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1-implementation-notes
+- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2 implementation notes
 
 ## Blockers
 
@@ -40,8 +42,9 @@
 
 ## Next Recommended Step
 
-1. **Live review**: verify dashboard, board, task detail, task creation in light/dark/auto themes
-2. **Approve Wave 1** before proceeding to Wave 2
+1. **Deploy Wave 2** to staging: `.\scripts\run-vps.ps1 -DeployWave1` (script name unchanged; rebuilds image with Wave 2 CSS)
+2. **Live review**: verify dashboard, new project modal, header, light/dark/auto themes
+3. **Approve Wave 2** before Wave 3 (board/task focus)
 
 ## Future Phases (Preview)
 
