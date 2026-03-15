@@ -228,6 +228,24 @@ All meaningful actions during development are logged here.
 
 ---
 
+### Action: Wave 1 deploy to staging (complete)
+
+**Timestamp**: 2025-03-14  
+**Context**: User set up automation key; agent SSH working. Deploy executed remotely.
+
+**Actions performed**:
+1. Committed and pushed Wave 1 + SSH setup (was local-only)
+2. Ran deploy on VPS: `cd /root/frankboard && git pull && ./scripts/deploy-wave1.sh`
+3. Fixed .dockerignore — removed `assets/css/src` and `assets/vendor` so `php cli css` runs during Docker build
+4. Redeployed after fixes — CSS build succeeded
+5. Verified login page: centered card, FrankBoard branding, typography live
+
+**Files affected**: .dockerignore (2 commits: 53eab9c, 508bda2)
+
+**Results**: Wave 1 live at http://66.179.208.122:8080. Agent can run deploys via SSH.
+
+---
+
 ### Action: VPS SSH setup for agent automation
 
 **Timestamp**: 2025-03-14  

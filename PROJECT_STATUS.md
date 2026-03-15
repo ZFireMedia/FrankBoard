@@ -5,7 +5,7 @@
 
 ## Current Phase
 
-**Wave 1 Implementation Complete** — UI modernization Wave 1 implemented in repo. Staging not yet rebuilt; live review pending.
+**Wave 1 deployed to staging** — UI modernization live. Agent SSH operational for deploys/maintenance.
 
 ## Verified in Staging (VPS 66.179.208.122)
 
@@ -15,7 +15,7 @@
 | Login flow | Functional |
 | Admin password change | Done |
 | Docker stack healthy | frankboard + frankboard-db running |
-| Wave 1 CSS deployed | Pending rebuild |
+| Wave 1 CSS deployed | ✓ Centered card, FrankBoard branding, typography |
 
 ## Completed Work
 
@@ -31,7 +31,7 @@
 ## Current Repo/Runtime State
 
 - **Codebase**: Wave 1 CSS/template changes in repo; Kanboard v1.2.51 fork
-- **Runtime**: FrankBoard live on 66.179.208.122:8080 (pre–Wave 1 image)
+- **Runtime**: FrankBoard live on 66.179.208.122:8080 (frankboard:wave1 image)
 - **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1-implementation-notes
 
 ## Blockers
@@ -40,9 +40,8 @@
 
 ## Next Recommended Step
 
-1. **Rebuild and redeploy** to staging: build image from FrankBoard repo (includes CSS build in Dockerfile), push, deploy
-2. **Live review**: verify login, dashboard, board, task detail, task creation in light/dark/auto themes
-3. **Approve Wave 1** before proceeding to Wave 2
+1. **Live review**: verify dashboard, board, task detail, task creation in light/dark/auto themes
+2. **Approve Wave 1** before proceeding to Wave 2
 
 ## Future Phases (Preview)
 
