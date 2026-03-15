@@ -22,5 +22,5 @@ Dockerfile
 Makefile
 Vagrantfile
 web.config
-assets/css/src
+# assets/css/src needed for `php cli css` during Docker build
 assets/vendor
