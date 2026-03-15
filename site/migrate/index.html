@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Migrate from Kanboard — FrankBoard</title>
+  <meta name="description" content="Migrate from Kanboard to FrankBoard. Same database schema, plugin API, and migration paths. Backup, point at your database, verify. Reversible.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../" class="logo">FrankBoard</a>
+      <nav class="nav">
+        <a href="../editions/">Editions</a>
+        <a href="../migrate/" class="active">Migrate</a>
+        <a href="../why/">Why</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../support/">Support</a>
+        <a href="https://github.com/zfiremedia-stack/FrankBoard" class="nav-cta" target="_blank" rel="noopener">Get Community Free</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container container--narrow">
+        <h1 class="page-hero__title">Migrate from Kanboard</h1>
+        <p class="page-hero__subhead">Your data, plugins, and workflows stay intact. Migration is reversible.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container--narrow">
+        <p class="lead">Moving from Kanboard to FrankBoard is straightforward. FrankBoard uses the same database schema and plugin API as Kanboard. You backup your data, point FrankBoard at your database, and verify. You can also migrate back if needed — your data isn't locked in.</p>
+        <h2 class="section__title">What stays the same</h2>
+        <ul class="check-list">
+          <li>Database schema (SQLite, MySQL, PostgreSQL)</li>
+          <li>Plugin API and most plugins</li>
+          <li>Config patterns (<code>config.php</code>, env vars)</li>
+          <li>Your projects, tasks, and users</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container--narrow">
+        <h2 class="section__title">Step-by-step migration</h2>
+        <ol class="steps">
+          <li><strong>Backup your Kanboard data.</strong> Export your database. Keep a copy somewhere safe.</li>
+          <li><strong>Install FrankBoard.</strong> Use Docker, or deploy FrankBoard alongside your existing setup.</li>
+          <li><strong>Point FrankBoard at your database.</strong> Configure <code>DATABASE_URL</code> (or equivalent) to use your Kanboard database. FrankBoard will use the existing schema.</li>
+          <li><strong>Verify.</strong> Log in. Check projects, tasks, and columns. Confirm plugins if you use them.</li>
+          <li><strong>Switch over.</strong> When satisfied, retire the old Kanboard instance and use FrankBoard.</li>
+        </ol>
+        <p class="note"><strong>Reversing:</strong> Restore your backup to Kanboard. Your data is standard SQL — no lock-in.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Compatibility</h2>
+        <div class="table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Compatibility</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Database</td>
+                <td>Full</td>
+                <td>Same schema. PostgreSQL preferred for new installs.</td>
+              </tr>
+              <tr>
+                <td>Plugins</td>
+                <td>High</td>
+                <td>Same API. Validate per plugin before migration.</td>
+              </tr>
+              <tr>
+                <td>Config</td>
+                <td>High</td>
+                <td><code>config.php</code>, env vars align with Kanboard.</td>
+              </tr>
+              <tr>
+                <td>Themes</td>
+                <td>Partial</td>
+                <td>FrankBoard uses its own CSS. Stock Kanboard themes may need adjustment.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container--narrow">
+        <h2 class="section__title">About plugins</h2>
+        <p>FrankBoard uses the Kanboard plugin API. Most plugins work. We don't test every plugin. Before migrating, test your critical plugins in a staging environment. We document known compatibility where we can. If something breaks, open an issue and we'll look into it.</p>
+        <p><strong>We do not guarantee 100% plugin compatibility.</strong> Edge cases exist. Test first.</p>
+      </div>
+    </section>
+
+    <section class="footer-ctas">
+      <div class="container">
+        <h2 class="section__title">Need help?</h2>
+        <p class="mb-lg">We offer migration assistance: backup review, config help, and verification.</p>
+        <div class="footer-ctas__grid">
+          <a href="mailto:support@frankboard.com" class="btn btn--primary">Contact us for migration assistance</a>
+          <a href="https://github.com/zfiremedia-stack/FrankBoard" class="btn btn--secondary" target="_blank" rel="noopener">Get Community Free</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav">
+        <a href="../editions/">Editions</a>
+        <a href="../migrate/">Migrate</a>
+        <a href="../why/">Why</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../support/">Support</a>
+        <a href="https://github.com/zfiremedia-stack/FrankBoard" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <p class="footer-copy">&copy; 2025 FrankBoard. Built on <a href="https://github.com/kanboard/kanboard" target="_blank" rel="noopener">Kanboard</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
