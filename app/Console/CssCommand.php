@@ -37,6 +37,7 @@ class CssCommand extends BaseCommand
         'table_drag_and_drop.css',
         'table_list.css',
         'form.css',
+        'login.css',
         'input_addon.css',
         'icon.css',
         'alert.css',

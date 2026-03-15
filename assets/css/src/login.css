@@ -1,0 +1,87 @@
+/*
+ * FrankBoard Wave 1: Login page polish
+ * Centered card layout, subtle branding, improved spacing.
+ * Uses theme variables for light/dark/auto compatibility.
+ */
+
+.login-page-wrapper {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 32px 28px;
+    background-color: var(--panel-background-color);
+    border: 1px solid var(--panel-border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.login-brand {
+    margin: 0 0 24px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+.login-card .form-login {
+    max-width: none;
+    margin: 0;
+}
+
+.login-card .form-login label {
+    margin-top: 14px;
+}
+
+.login-card .form-login label:first-of-type {
+    margin-top: 0;
+}
+
+.login-card .form-actions {
+    padding-top: 24px;
+    margin-top: 4px;
+}
+
+.login-card .form-actions .btn {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 1em;
+    border-radius: 6px;
+}
+
+.login-card .reset-password {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.login-card .reset-password a {
+    font-size: 0.9em;
+}
+
+.login-card .alert {
+    margin-bottom: 16px;
+    border-radius: 6px;
+}
+
+@media (max-width: 480px) {
+    .login-page-wrapper {
+        padding: 16px 12px;
+    }
+
+    .login-card {
+        padding: 24px 20px;
+    }
+
+    .login-brand {
+        font-size: 1.35rem;
+        margin-bottom: 20px;
+    }
+}

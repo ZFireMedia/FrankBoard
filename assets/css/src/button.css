@@ -24,6 +24,12 @@ a.btn {
     color: var(--button-default-color-focus);
 }
 
+.btn:focus-visible,
+.btn:focus {
+    outline: 2px solid var(--input-focus-border-color);
+    outline-offset: 2px;
+}
+
 .btn-red {
     border-color: var(--button-danger-border-color);
     background: var(--button-danger-background-color);

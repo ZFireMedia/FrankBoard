@@ -24,6 +24,7 @@ RUN apk --no-cache --update add \
     ln -sf /usr/bin/php84 /usr/bin/php
 
 ADD . /var/www/app
+RUN cd /var/www/app && php cli css
 ADD docker/ /
 
 RUN rm -rf /var/www/app/docker && echo $VERSION > /var/www/app/app/version.txt

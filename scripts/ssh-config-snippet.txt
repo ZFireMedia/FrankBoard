@@ -1,0 +1,8 @@
+Host frankboard-vps
+    HostName 66.179.208.122
+    User root
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+# For Cursor Agent / non-interactive: use automation key (no passphrase):
+# IdentityFile ~/.ssh/id_ed25519_frankboard

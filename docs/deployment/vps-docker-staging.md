@@ -113,6 +113,32 @@ docker compose up -d
 
 For image version changes, update `KANBOARD_IMAGE` in `.env` (e.g. `v1.2.52`) and run `docker compose up -d`.
 
+### 7a. Deploy Wave 1 (custom FrankBoard build)
+
+Wave 1 includes CSS/template changes that require building from the FrankBoard repo (not the stock Kanboard image). **Repo path on VPS**: `/root/frankboard`.
+
+From your local machine (requires SSH key access):
+
+```powershell
+.\scripts\run-vps.ps1 -DeployWave1
+```
+
+Or manually via SSH:
+
+```bash
+ssh frankboard-vps "cd /root/frankboard && git pull && chmod +x scripts/deploy-wave1.sh && ./scripts/deploy-wave1.sh"
+```
+
+Or on the VPS directly:
+
+```bash
+cd /root/frankboard
+git pull
+./scripts/deploy-wave1.sh
+```
+
+Verify at http://66.179.208.122:8080 — login page should show centered card layout and FrankBoard branding.
+
 ---
 
 ## 8. Backup Considerations

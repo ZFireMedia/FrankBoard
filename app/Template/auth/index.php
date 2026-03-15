@@ -1,4 +1,7 @@
-<div class="form-login">
+<div class="login-page-wrapper">
+    <div class="login-card">
+        <h1 class="login-brand">FrankBoard</h1>
+        <div class="form-login">
 
     <?= $this->hook->render('template:auth:login-form:before') ?>
 
@@ -39,4 +42,6 @@
     <?php endif ?>
 
     <?= $this->hook->render('template:auth:login-form:after') ?>
+        </div>
+    </div>
 </div>
