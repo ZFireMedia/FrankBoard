@@ -1,8 +1,11 @@
+/* FrankBoard Wave 3: task tags on cards and detail */
 .task-tags li {
     display: inline-block;
-    margin: 3px 3px 0 0;
-    padding: 1px 3px 1px 3px;
+    margin: 2px 4px 2px 0;
+    padding: 2px 6px;
     color: var(--color-primary);
-    border: 1px solid #333;
-    border-radius: 4px
+    border: 1px solid var(--panel-border-color);
+    border-radius: var(--surface-radius, 4px);
+    font-size: 0.85em
 }
+

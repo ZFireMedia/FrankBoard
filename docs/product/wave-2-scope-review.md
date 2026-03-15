@@ -52,10 +52,12 @@
 
 ## Verification
 
-- [ ] Deploy to staging
-- [ ] Login page
-- [ ] Dashboard/project list
-- [ ] New project modal
-- [ ] One additional modal (e.g. user creation, activity stream)
-- [ ] Topbar in light/dark/auto
-- [ ] No console/runtime/template errors
+- [x] Deploy to staging
+- [x] Login page (loads; Wave 2 form styling visible; credentials not available for post-login checks)
+- [ ] Dashboard/project list (requires login)
+- [ ] New project modal (requires login)
+- [ ] One additional modal (requires login)
+- [ ] Topbar in light/dark/auto (requires login)
+- [x] No console/runtime/template errors observed on login page
+
+**Note:** Manual verification of interior surfaces (dashboard, modals, topbar) should be completed after logging in with valid credentials.

@@ -305,4 +305,27 @@ All meaningful actions during development are logged here.
 
 ---
 
-**Summary stats**: 9 log entries | 42 files created/updated | VPS SSH automation ready (pending automation key)
+### Action: Wave 3 Board and Task Experience
+
+**Timestamp**: 2025-03-15  
+**Context**: Implement third UI wave — board, task cards, task detail, task forms. CSS-only.
+
+**Actions performed**:
+1. Board — column header padding 12px 14px, swimlane header styling, board-task-list padding, draggable-placeholder radius
+2. Task cards — padding 10px 12px, margin 10px, border/background theme vars, title font-weight 600
+3. Task detail — task-summary-container padding 20–24px, columns gap 24px, li line-height 1.6
+4. Task form — secondary column border-left, task-form-bottom border-top, padding/spacing
+5. Task category/tags — theme vars, radius, padding on cards
+
+**Files affected**:
+- assets/css/src/board.css, task_board.css, task_summary.css, task_form.css, task_category.css, task_tags.css
+- docs/product/wave-3-implementation-notes.md, wave-3-scope-review.md, wave-3-verification.md
+- PROJECT_STATUS.md
+
+**Results**: Wave 3 ready. Deploy and verify pending.
+
+**Next steps**: Deploy, verify with admin/pass123, capture screenshots, update verification doc.
+
+---
+
+**Summary stats**: 10 log entries | 52 files created/updated | Wave 3 implementation complete

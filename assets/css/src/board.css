@@ -1,3 +1,4 @@
+/* FrankBoard Wave 3: board page cleanup */
 .public-board {
     margin-top: 5px
 }
@@ -8,7 +9,9 @@
 }
 
 #board-container {
-    overflow-x: auto
+    overflow-x: auto;
+    margin-top: 12px;
+    padding: 0 4px
 }
 
 #board {
@@ -22,7 +25,12 @@
 }
 
 #board th.board-column-header {
-    width: 240px
+    width: 240px;
+    padding: 12px 14px;
+    font-weight: 600;
+    font-size: 0.95em;
+    border-color: var(--board-column-border-color, var(--table-border-color));
+    background-color: var(--board-column-header-background, var(--table-header-background-color))
 }
 
 #board th.board-column-header-first {
@@ -110,6 +118,15 @@ td.board-column-task-collapsed {
     font-size: 0.85em
 }
 
+#board th.board-swimlane-header {
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 0.95em;
+    background-color: var(--board-swimlane-header-background, var(--table-list-header-background-color));
+    border-color: var(--board-column-border-color, var(--table-border-color));
+    border-bottom-width: 2px
+}
+
 a.board-swimlane-toggle {
     text-decoration: none
 }
@@ -122,7 +139,8 @@ a.board-swimlane-toggle:focus {
 }
 
 .board-task-list {
-    min-height: 60px
+    min-height: 60px;
+    padding: 10px 8px
 }
 
 .board-task-list-compact {
@@ -149,7 +167,8 @@ a.board-swimlane-toggle:focus {
     border: 2px dashed var(--draggable-placeholder-border-color);
     background: var(--draggable-placeholder-background-color);
     height: 70px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    border-radius: var(--surface-radius, 6px)
 }
 
 div.draggable-item-selected {

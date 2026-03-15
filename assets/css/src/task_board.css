@@ -1,29 +1,33 @@
+/* FrankBoard Wave 3: task card readability */
 .task-board-sort-handle {
     float: left;
-    padding-right: 5px
+    padding-right: 8px
 }
 
 .task-board {
     position: relative;
-    margin-bottom: 4px;
-    border: 1px solid #000;
-    padding: 2px;
+    margin-bottom: 10px;
+    border: 1px solid var(--board-card-border, var(--panel-border-color));
+    padding: 10px 12px;
     word-wrap: break-word;
     font-size: 0.9em;
-    border-radius: 6px
+    border-radius: var(--surface-radius, 6px);
+    background-color: var(--body-background-color);
 }
 
 div.task-board-recent {
-    border-width: 2px
+    border-width: 2px;
+    border-color: var(--link-color-primary)
 }
 
 div.task-board-status-closed {
     user-select: none;
-    border: 1px dotted #555
+    border: 1px dotted var(--board-card-closed-border, var(--color-medium));
+    opacity: 0.9
 }
 
 .task-board a {
-    color: #000;
+    color: var(--color-primary);
     text-decoration: none
 }
 
@@ -34,8 +38,14 @@ div.task-board-status-closed {
 }
 
 .task-board-title {
-    margin-top: 5px;
-    margin-bottom: 8px
+    margin-top: 8px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.task-board-expanded .task-board-header {
+    margin-bottom: 2px
 }
 
 .task-board-title a:hover {

@@ -1,16 +1,17 @@
+/* FrankBoard Wave 3: task card category polish */
 .task-board-category-container {
     text-align: right;
-    margin-top: 8px;
-    margin-bottom: 8px
+    margin-top: 6px;
+    margin-bottom: 6px
 }
 
 .task-board-category {
-    border: 1px solid #555;
-    font-size: 0.9em;
+    border: 1px solid var(--panel-border-color);
+    font-size: 0.85em;
     font-weight: 500;
-    color: #000;
-    padding: 1px 3px 1px 2px;
-    border-radius: 3px
+    color: var(--color-primary);
+    padding: 2px 6px;
+    border-radius: var(--surface-radius, 4px)
 }
 
 .task-board-category a:hover {

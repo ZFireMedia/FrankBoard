@@ -5,7 +5,7 @@
 
 ## Current Phase
 
-**Wave 2 implementation complete** — Interior UI foundation (modals, forms, dashboard, header, panels) ready for deploy and verification.
+**Wave 3 implementation complete** — Board and task experience (cards, detail, forms) ready for deploy and verification.
 
 ## Verified in Staging (VPS 66.179.208.122)
 
@@ -16,7 +16,8 @@
 | Admin password change | Done |
 | Docker stack healthy | frankboard + frankboard-db running |
 | Wave 1 CSS deployed | ✓ Centered card, FrankBoard branding, typography |
-| Wave 2 CSS deployed | Pending deploy |
+| Wave 2 CSS deployed | ✓ Deployed |
+| Wave 3 CSS deployed | Pending deploy |
 
 ## Completed Work
 
@@ -29,12 +30,14 @@
 | First implementation wave | 2025-03-14 | `docs/product/first-implementation-wave-v1.md` |
 | **Wave 1 implementation** | **2025-03-14** | **Typography, login polish, focus states, contrast; see `docs/product/wave-1-implementation-notes.md`** |
 | **Wave 2 implementation** | **2025-03-15** | **Modal, form, dashboard, header, panel polish; see `docs/product/wave-2-implementation-notes.md`** |
+| **Wave 3 implementation** | **2025-03-15** | **Board, task cards, task detail, task forms; see `docs/product/wave-3-implementation-notes.md`** |
+| **Wave 3 implementation** | **2025-03-15** | **Board, task cards, task detail, task forms; see `docs/product/wave-3-implementation-notes.md`** |
 
 ## Current Repo/Runtime State
 
-- **Codebase**: Wave 1 + Wave 2 CSS changes in repo; Kanboard v1.2.51 fork
+- **Codebase**: Wave 1 + Wave 2 + Wave 3 CSS changes in repo; Kanboard v1.2.51 fork
 - **Runtime**: FrankBoard live on 66.179.208.122:8080 (frankboard:wave1 image)
-- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2 implementation notes
+- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2/3 implementation notes
 
 ## Blockers
 
@@ -42,9 +45,9 @@
 
 ## Next Recommended Step
 
-1. **Deploy Wave 2** to staging: `.\scripts\run-vps.ps1 -DeployWave1` (script name unchanged; rebuilds image with Wave 2 CSS)
-2. **Live review**: verify dashboard, new project modal, header, light/dark/auto themes
-3. **Approve Wave 2** before Wave 3 (board/task focus)
+1. **Deploy Wave 3** to staging: `.\scripts\run-vps.ps1 -DeployWave1` (rebuilds image with all waves)
+2. **Live review**: verify board, task cards, task detail, task create/edit, light/dark/auto themes
+3. **Verify drag-and-drop** on board
 
 ## Future Phases (Preview)
 
