@@ -65,12 +65,12 @@
 }
 
 .sidebar>ul li:hover {
-    border-left: 5px solid #555;
+    border-left: 5px solid var(--color-medium);
     padding-left: 8px
 }
 
 .sidebar>ul li.active {
-    border-left: 5px solid #333;
+    border-left: 5px solid var(--color-primary);
     padding-left: 8px
 }
 

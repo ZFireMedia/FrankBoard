@@ -5,7 +5,7 @@
 
 ## Current Phase
 
-**Wave 3 implementation complete** — Board and task experience (cards, detail, forms) ready for deploy and verification.
+**Wave 4 product polish** — Empty states, search/results, mobile responsiveness, admin/settings consistency, theme fixes. Ready for deploy and verification.
 
 ## Verified in Staging (VPS 66.179.208.122)
 
@@ -17,7 +17,8 @@
 | Docker stack healthy | frankboard + frankboard-db running |
 | Wave 1 CSS deployed | ✓ Centered card, FrankBoard branding, typography |
 | Wave 2 CSS deployed | ✓ Deployed |
-| Wave 3 CSS deployed | Pending deploy |
+| Wave 3 CSS deployed | ✓ Verified (board, task card, detail, form) |
+| Wave 4 CSS deployed | Pending deploy |
 
 ## Completed Work
 
@@ -31,13 +32,14 @@
 | **Wave 1 implementation** | **2025-03-14** | **Typography, login polish, focus states, contrast; see `docs/product/wave-1-implementation-notes.md`** |
 | **Wave 2 implementation** | **2025-03-15** | **Modal, form, dashboard, header, panel polish; see `docs/product/wave-2-implementation-notes.md`** |
 | **Wave 3 implementation** | **2025-03-15** | **Board, task cards, task detail, task forms; see `docs/product/wave-3-implementation-notes.md`** |
-| **Wave 3 implementation** | **2025-03-15** | **Board, task cards, task detail, task forms; see `docs/product/wave-3-implementation-notes.md`** |
+| **Commercial packaging v1** | **2025-03-15** | **Product positioning, editions, migration story, revenue model; see `docs/business/`** |
+| **Wave 4 implementation** | **2025-03-15** | **Empty states, search polish, responsive, admin consistency, theme fixes; see `docs/product/wave-4-implementation-notes.md`** |
 
 ## Current Repo/Runtime State
 
-- **Codebase**: Wave 1 + Wave 2 + Wave 3 CSS changes in repo; Kanboard v1.2.51 fork
+- **Codebase**: Wave 1 + Wave 2 + Wave 3 + Wave 4 CSS changes in repo; Kanboard v1.2.51 fork
 - **Runtime**: FrankBoard live on 66.179.208.122:8080 (frankboard:wave1 image)
-- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2/3 implementation notes
+- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2/3/4 implementation notes, business packaging (docs/business/)
 
 ## Blockers
 
@@ -45,9 +47,9 @@
 
 ## Next Recommended Step
 
-1. **Deploy Wave 3** to staging: `.\scripts\run-vps.ps1 -DeployWave1` (rebuilds image with all waves)
-2. **Live review**: verify board, task cards, task detail, task create/edit, light/dark/auto themes
-3. **Verify drag-and-drop** on board
+1. **Deploy Wave 4** to staging; verify per `docs/product/wave-4-verification.md`
+2. Review `docs/business/` packaging docs; decide on edition boundaries and launch sequence
+3. Optional: Verify drag-and-drop on board, dark/auto themes
 
 ## Future Phases (Preview)
 

@@ -1,0 +1,58 @@
+/* FrankBoard Wave 4: mobile and narrow-width responsiveness */
+
+/* Page shell — reduce side margin on narrow screens */
+@media (max-width: 640px) {
+    .page {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
+
+/* Board — horizontal scroll cue on overflow */
+#board-container {
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+    #board-container {
+        margin-left: -4px;
+        margin-right: -4px;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+}
+
+/* Config/settings — visual consistency with Wave 2 form/panel foundation */
+.sidebar-content .page-header {
+    margin-bottom: 20px;
+}
+
+.sidebar-content .page-header h2 {
+    font-weight: 600;
+    font-size: 1.25em;
+}
+
+.sidebar-content fieldset {
+    margin-bottom: 24px;
+}
+
+.sidebar-content .form-actions {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--panel-border-color);
+}
+
+.sidebar-content .panel {
+    margin-top: 16px;
+}
+
+/* Config/settings — form spacing on narrow */
+@media (max-width: 768px) {
+    .sidebar-content .form-actions {
+        margin-top: 20px;
+    }
+
+    .sidebar-content fieldset {
+        margin-bottom: 20px;
+    }
+}

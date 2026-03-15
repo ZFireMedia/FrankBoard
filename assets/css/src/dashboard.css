@@ -27,8 +27,4 @@
     padding-right: 20px;
 }
 
-/* Empty state polish */
-#main .alert {
-    padding: 20px 24px;
-    border-radius: var(--surface-radius, 6px);
-}
+/* Empty state polish (detail in empty_states.css) */

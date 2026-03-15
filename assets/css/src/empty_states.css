@@ -1,0 +1,16 @@
+/* FrankBoard Wave 4: empty state polish — intentional, helpful feel */
+
+/* Page-level empty states: no project, nothing assigned, nothing found, etc. */
+.page .alert,
+#main .alert {
+    padding: 20px 24px;
+    border-radius: var(--surface-radius, 6px);
+    line-height: 1.5;
+    margin-top: 12px;
+    margin-bottom: 16px;
+}
+
+/* Search "nothing found" and similar — slight emphasis */
+.page .filter-box + .alert {
+    margin-top: 16px;
+}

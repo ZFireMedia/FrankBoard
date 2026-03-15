@@ -328,4 +328,96 @@ All meaningful actions during development are logged here.
 
 ---
 
-**Summary stats**: 10 log entries | 52 files created/updated | Wave 3 implementation complete
+### Action: Wave 3 verification completed
+
+**Timestamp**: 2025-03-15  
+**Context**: Complete Wave 3 verification on staging, including docs.
+
+**Actions performed**:
+1. Created project "Wave3 Verify" on http://66.179.208.122:8080
+2. Verified board page — column headers, swimlane styling, add-task links
+3. Created task "Wave 3 CSS check" — task create form styling verified
+4. Verified task card on board — spacing, border, title weight
+5. Opened task detail — task-summary layout, padding, columns
+6. Opened task edit form — secondary column, form bottom border
+7. Captured screenshots: wave3-board.png, wave3-task-card.png, wave3-task-detail.png, wave3-task-form.png
+8. Updated docs/product/wave-3-verification.md — all surfaces Pass; Light theme Pass; Dark/Auto deferred; follow-up: drag-and-drop, dark theme
+9. Updated PROJECT_STATUS.md — Wave 3 verified
+
+**Files affected**:
+- docs/product/wave-3-verification.md (updated)
+- ACTION_LOG.md (this entry)
+- PROJECT_STATUS.md (Wave 3 status)
+
+**Results**: Wave 3 verification complete. All core surfaces pass in light theme.
+
+**Next steps**: Optional — verify drag-and-drop, dark/auto themes.
+
+---
+
+### Action: Commercial Packaging and Product Positioning v1
+
+**Timestamp**: 2025-03-15  
+**Context**: Strategy/documentation only. Move from pure modernization into product/business planning. Wave 1–3 approved; FrankBoard visually credible. No billing, licensing, or gating.
+
+**Actions performed**:
+1. **product-packaging-v1.md** — Product summary, target users (small teams, technical leads, Kanboard users), edition overview, core value proposition, what FrankBoard is and is not
+2. **edition-strategy-v1.md** — Community (core board, self-hosted), Pro (support, automation, priority features), Cloud (managed hosting); feature boundaries; free vs paid vs cloud-only
+3. **migration-positioning-v1.md** — Positioning relative to Kanboard (modernized successor), migration promise, compatibility guidance, trust/continuity language, comparison recommendations
+4. **revenue-model-v1.md** — First revenue (support/hosting), service revenue (setup, migration), recurring (Pro/Cloud), monetization sequence, pricing-shape recommendations
+5. Updated PROJECT_STATUS.md — Current phase, Completed Work, Documentation
+6. Updated ACTION_LOG.md — this entry
+
+**Files affected**:
+- docs/business/product-packaging-v1.md (new)
+- docs/business/edition-strategy-v1.md (new)
+- docs/business/migration-positioning-v1.md (new)
+- docs/business/revenue-model-v1.md (new)
+- PROJECT_STATUS.md (updated)
+- ACTION_LOG.md (this entry)
+
+**Strategy decisions**:
+- Three editions: Community (free, self-hosted), Pro (paid self-hosted), Cloud (managed)
+- Community keeps full core feature set; Pro adds support + convenience features; Cloud = managed + reliability
+- Migration: "FrankBoard is a modernized Kanboard" — respectful, not replacement hype
+- First revenue: support contracts, hosting setup, then Pro subscription, then Cloud
+- No technical gating in this task; documents are recommendations only
+
+**Results**: Commercial packaging v1 complete. Documents coherent with product direction.
+
+**Next steps**: Review docs; consider Wave 4 (mobile) or Pro feature scoping when ready.
+
+---
+
+### Action: Wave 4 Product Polish and Readiness Pass
+
+**Timestamp**: 2025-03-15  
+**Context**: Next UI polish wave after Wave 3 — empty states, search/results, mobile, admin/settings consistency, theme verification. No behavior changes, no feature bloat.
+
+**Actions performed**:
+1. **Empty states** — empty_states.css: page-level `.alert` padding 20px 24px, border-radius, line-height; intentional feel for "no project", "nothing assigned", "nothing found"
+2. **Search/results** — filter_box.css: margin-bottom 20px, max-width 480px for search; table_list.css: table-list-category uses theme vars
+3. **Mobile/narrow-width** — responsive.css: .page margin 12px at 640px; board-container touch scroll; config form spacing at 768px
+4. **Admin/settings** — responsive.css: .sidebar-content page-header, fieldset, form-actions, panel spacing consistent with Wave 2 foundation
+5. **Theme fixes** — board.css: draggable-item-selected uses var(--color-primary); table_list.css: table-list-category uses --panel-* vars; sidebar.css: hover/active border uses var(--color-medium), var(--color-primary); task_summary.css: #external-task-view uses var(--panel-border-color)
+6. **CssCommand** — added empty_states.css, responsive.css to appFiles
+7. **Docs** — wave-4-implementation-notes.md, wave-4-scope-review.md, wave-4-verification.md
+8. Updated PROJECT_STATUS.md, ACTION_LOG.md
+
+**Files affected**:
+- assets/css/src/empty_states.css (new)
+- assets/css/src/responsive.css (new)
+- assets/css/src/board.css, table_list.css, sidebar.css, task_summary.css, filter_box.css
+- app/Console/CssCommand.php
+- docs/product/wave-4-implementation-notes.md (new)
+- docs/product/wave-4-scope-review.md (new)
+- docs/product/wave-4-verification.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**Results**: Wave 4 implementation complete. Ready for deploy and verification.
+
+**Next steps**: Deploy to staging; verify per wave-4-verification.md (empty states, search, mobile, admin, light/dark/auto themes, drag-and-drop).
+
+---
+
+**Summary stats**: 13 log entries | 68 files created/updated | Wave 4 implementation complete

@@ -41,6 +41,7 @@ class CssCommand extends BaseCommand
         'input_addon.css',
         'icon.css',
         'alert.css',
+        'empty_states.css',
         'button.css',
         'tooltip.css',
         'dropdown.css',
@@ -81,6 +82,7 @@ class CssCommand extends BaseCommand
         'slideshow.css',
         'list_items.css',
         'bulk_change.css',
+        'responsive.css',
     ];
 
     private $printFiles = [

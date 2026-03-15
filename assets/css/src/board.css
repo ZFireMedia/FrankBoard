@@ -172,5 +172,6 @@ a.board-swimlane-toggle:focus {
 }
 
 div.draggable-item-selected {
-    border: 1px solid #000
+    border: 2px solid var(--color-primary);
+    border-radius: var(--surface-radius, 6px)
 }
