@@ -17,6 +17,10 @@ mkdir -p "$SITE_DEST"
 # Copy site files (preserves structure: index.html, editions/, assets/, etc.)
 echo "Copying site files..."
 cp -r "$SITE_SRC"/* "$SITE_DEST/"
+# Set ownership so nginx (www-data) can read — required to avoid 403 Forbidden
+chown -R www-data:www-data "$SITE_DEST"
+find "$SITE_DEST" -type d -exec chmod 755 {} \;
+find "$SITE_DEST" -type f -exec chmod 644 {} \;
 echo "  -> $SITE_DEST"
 
 # Install nginx config if present
