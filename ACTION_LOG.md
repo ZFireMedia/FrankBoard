@@ -946,4 +946,21 @@ All meaningful actions during development are logged here.
 
 **Next steps**: Soft-launch outreach; optional brand alias `support@frankboard.com` → forward later
 
-**Summary stats**: 33 log entries | Site deployed with zfiremedia contact
+---
+
+### Action: Fix frankboard.com 403 — restore origin HTTPS
+
+**Timestamp**: 2026-09-28  
+**Context**: After site deploy, frankboard.com returned 403 (user + agent). Cloudflare Full SSL hits origin :443; deploy had overwritten certbot SSL blocks with HTTP-only configs. Apex had no 443 server → nginx default 403. `wildcard.frankboard.com.conf` also steals `*.frankboard.com` HTTPS to :5000.
+
+**Actions performed**:
+1. Restored HTTPS server blocks in `config/nginx/frankboard.com.conf` (LE certs)
+2. Restored HTTPS for `config/nginx/app.frankboard.com.conf` (exact name beats wildcard → :8080)
+3. Deployed configs to VPS, `nginx -t` + reload
+4. Verified origin + public: frankboard.com 200, pricing 200, app → /login
+
+**Results**: Marketing site and app reachable over HTTPS again.
+
+**Next steps**: Soft-launch outreach
+
+**Summary stats**: 34 log entries | 403 SSL fix
