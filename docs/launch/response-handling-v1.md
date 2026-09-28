@@ -45,7 +45,7 @@
 | Feedback | Thank them. Ask clarifying questions if useful. |
 | "How do I…" | Point to docs or migration guide. |
 
-### Contact (mailto:support@frankboard.com)
+### Contact (mailto:support@zfiremedia.com)
 
 | Type | Action |
 |------|--------|

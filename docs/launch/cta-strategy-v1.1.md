@@ -22,7 +22,7 @@
 ## Secondary CTA: Request Setup Help
 
 **Placement**: Migrate page, support page, pricing (services section)  
-**Destination**: mailto:support@frankboard.com (with context: setup, migration, deployment)  
+**Destination**: mailto:support@zfiremedia.com (with context: setup, migration, deployment)  
 **Goal**: Capture teams that want assistance — deployment, migration, VPS setup. Service revenue signal.
 
 **Why second**:
@@ -50,7 +50,7 @@
 | Priority | CTA | Destination | Soft launch focus |
 |----------|-----|-------------|-------------------|
 | 1 | Migrate from Kanboard | /migrate/ | Primary |
-| 2 | Request setup help | mailto:support@frankboard.com | Secondary |
+| 2 | Request setup help | mailto:support@zfiremedia.com | Secondary |
 | 3 | Get Community Free | GitHub | Tertiary |
 
 ---

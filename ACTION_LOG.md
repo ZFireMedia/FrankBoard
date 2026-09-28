@@ -821,7 +821,7 @@ All meaningful actions during development are logged here.
 
 **CTA hierarchy**:
 - Primary: Migrate from Kanboard → /migrate/
-- Secondary: Request setup help → mailto:support@frankboard.com
+- Secondary: Request setup help → mailto:support@zfiremedia.com
 - Tertiary: Get Community Free → GitHub
 
 **Channel order**: Personal first → Kanboard/self-hosted → Reddit → HN (defer until ready)
@@ -873,7 +873,7 @@ All meaningful actions during development are logged here.
 **Next steps**:
 1. Make `ZFireMedia/FrankBoard` public (or fix all site GitHub links)
 2. Align homepage hero CTA with soft-launch v1.1 (Migrate primary)
-3. Confirm `support@frankboard.com` is monitored
+3. Confirm `support@zfiremedia.com` is monitored
 4. Commit/push pending docs + deploy script changes
 5. Optional: quick core-regression re-pass (create project/task) before outreach
 
@@ -889,7 +889,7 @@ All meaningful actions during development are logged here.
 2. Created public repo https://github.com/ZFireMedia/FrankBoard
 3. Retargeted site/docs GitHub URLs from `zfiremedia-stack/FrankBoard` → `ZFireMedia/FrankBoard`
 4. Homepage hero/footer CTAs aligned to soft-launch v1.1 (Migrate primary, setup help secondary, Community tertiary)
-5. DNS check: `frankboard.com` has SPF (GoDaddy efwd) but **no MX records** — `support@frankboard.com` unlikely to receive mail; `zfiremedia.com` has MX → `smtp.google.com`
+5. DNS check: `frankboard.com` has SPF (GoDaddy efwd) but **no MX records** — brand `support@frankboard.com` unlikely to receive mail; `zfiremedia.com` has MX → `smtp.google.com`
 6. Commit + push pending launch/QA/docs/nginx/deploy changes to new public origin (`0bdbd9ee1` → `origin/main`)
 
 **Files affected**:
@@ -901,8 +901,28 @@ All meaningful actions during development are logged here.
 **Results**: Public Community distribution live at https://github.com/ZFireMedia/FrankBoard (200, private=false). Email inbox for frankboard.com still broken (no MX). Marketing site on VPS still needs redeploy for live CTA/GitHub URL updates.
 
 **Next steps**:
-1. Add MX (or Cloudflare Email Routing) for frankboard.com / support@
+1. Switch contact mailto to `support@zfiremedia.com`
 2. Deploy updated marketing site to frankboard.com
 3. Begin soft-launch outreach
 
-**Summary stats**: 31 log entries | Public GitHub pushed
+---
+
+### Action: Switch contact email to support@zfiremedia.com
+
+**Timestamp**: 2026-09-28  
+**Context**: frankboard.com has no MX; ZFireMedia is the billing/owning company and has working Google mail. Selling posture is services-first (setup/migration), not Pro/Cloud checkout.
+
+**Actions performed**:
+1. Replaced all site `mailto:support@frankboard.com` (and one `frankboard.io`) with `support@zfiremedia.com`
+2. Updated launch/QA/site docs and PROJECT_STATUS accordingly
+3. Commit + push; prepare site deploy
+
+**Files affected**:
+- `site/**/*.html`
+- docs launch/qa/site/marketing-copy; PROJECT_STATUS.md; ACTION_LOG.md
+
+**Results**: Contact path points at monitored ZFireMedia inbox. Live site still needs redeploy.
+
+**Next steps**: Deploy marketing site; soft-launch outreach
+
+**Summary stats**: 32 log entries | Contact email → zfiremedia

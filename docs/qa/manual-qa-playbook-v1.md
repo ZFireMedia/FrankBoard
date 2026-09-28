@@ -147,7 +147,7 @@
 | Get Community Free (header, hero, footer) | GitHub repo | Opens correct repo |
 | Compare editions | /editions/ | Internal link works |
 | Migrate from Kanboard | /migrate/ | Internal link works |
-| Contact us / mailto | support@frankboard.com | Opens mail client or copies |
+| Contact us / mailto | support@zfiremedia.com | Opens mail client or copies |
 | Footer: GitHub | GitHub repo | Opens correct repo |
 | Footer: Kanboard | kanboard/kanboard | Opens upstream repo |
 

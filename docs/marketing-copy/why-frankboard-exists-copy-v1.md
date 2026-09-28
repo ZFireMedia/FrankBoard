@@ -62,4 +62,4 @@ Everyone starts with Community. It's free, full-featured, and self-hosted. When 
 
 **Try Community Free** — Download, run with Docker, or get it from GitHub. No signup required.
 
-**Need Pro or Cloud?** — [Contact us](mailto:support@frankboard.io) to learn more. We're building capacity and taking interest.
+**Need Pro or Cloud?** — [Contact us](mailto:support@zfiremedia.com) to learn more. We're building capacity and taking interest.

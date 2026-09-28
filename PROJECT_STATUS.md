@@ -60,13 +60,13 @@
 
 ## Blockers
 
-- **Email**: `frankboard.com` has no MX records — `support@frankboard.com` mailto CTAs will not receive mail until MX/Email Routing is configured. `zfiremedia.com` MX is fine (Google).
+- None for contact path — support CTAs use `support@zfiremedia.com` (Google MX). Optional later: forward `support@frankboard.com` via Cloudflare Email Routing for brand addresses.
 
 ## Next Recommended Step
 
-1. Fix frankboard.com mail (MX or Cloudflare Email Routing for support@)
-2. Deploy updated marketing site (GitHub URLs + Migrate-primary CTAs)
-3. Execute soft launch per docs/launch/ v1.1 — personal outreach first
+1. Deploy updated marketing site to frankboard.com (GitHub URLs, Migrate CTAs, zfiremedia support email)
+2. Execute soft launch per docs/launch/ v1.1 — personal outreach first
+3. Sell services (setup/migration) under ZFireMedia as demand appears; Pro/Cloud remain waitlist/contact
 
 ## Future Phases (Preview)
 

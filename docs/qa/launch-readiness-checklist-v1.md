@@ -29,12 +29,12 @@ All return 200, no 4xx/5xx.
 ### CTA Correctness
 
 - [ ] "Get Community Free" → GitHub FrankBoard repo
-- [ ] Pro/Cloud "Contact us" → mailto:support@frankboard.com
+- [ ] Pro/Cloud "Contact us" → mailto:support@zfiremedia.com
 - [ ] Internal links (Compare editions, Migrate, etc.) resolve correctly
 
 ### Email / Contact Correctness
 
-- [ ] support@frankboard.com is valid and monitored
+- [ ] support@zfiremedia.com is valid and monitored
 - [ ] mailto links use correct address
 
 ### Metadata / Favicon Basics

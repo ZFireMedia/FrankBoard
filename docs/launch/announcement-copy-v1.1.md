@@ -31,7 +31,7 @@ I've been working on FrankBoard — a modernization of Kanboard for small teams.
 If you're on Kanboard, migration is straightforward — backup, point at your DB, verify. I'm also offering setup and migration assistance if you'd rather have help.
 
 Migration guide: https://frankboard.com/migrate/
-Setup help: support@frankboard.com
+Setup help: support@zfiremedia.com
 
 Would value your feedback or a quick chat if you're curious.
 
@@ -62,7 +62,7 @@ I built FrankBoard as a modernization of Kanboard. Same core (boards, tasks, swi
 If you're on Kanboard, migration is straightforward — backup, point at your DB, verify. We offer migration and setup assistance if you want help.
 
 - Migration: https://frankboard.com/migrate/
-- Setup help: support@frankboard.com
+- Setup help: support@zfiremedia.com
 - Community free; GitHub: https://github.com/ZFireMedia/FrankBoard
 
 Happy to answer questions.

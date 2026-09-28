@@ -62,7 +62,7 @@
 - [ ] "Get Community Free" → GitHub repo
 - [ ] Footer "GitHub" → GitHub repo
 - [ ] Footer "Kanboard" → kanboard/kanboard
-- [ ] "Contact us" / Pro/Cloud CTAs → mailto:support@frankboard.com
+- [ ] "Contact us" / Pro/Cloud CTAs → mailto:support@zfiremedia.com
 - [ ] Internal links (Editions, Migrate, Why, Pricing, Support)
 
 ---

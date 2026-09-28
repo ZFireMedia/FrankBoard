@@ -25,7 +25,7 @@
 |-----|-----------|-------------|----------|
 | **Compare editions** | Hero, mid-page | /editions/ | 2 — Pro/Cloud prospects |
 | **Migrate from Kanboard** | Mid-page, footer | /migrate/ | 3 — Kanboard users |
-| **Contact us** | Editions, pricing, support | mailto:support@frankboard.com | 4 — Leads |
+| **Contact us** | Editions, pricing, support | mailto:support@zfiremedia.com | 4 — Leads |
 | **See pricing** | Footer | /pricing/ | 5 — Paid intent |
 
 ---
