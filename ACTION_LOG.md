@@ -964,3 +964,24 @@ All meaningful actions during development are logged here.
 **Next steps**: Soft-launch outreach
 
 **Summary stats**: 34 log entries | 403 SSL fix
+
+---
+
+### Action: Soft launch outreach start (GitHub)
+
+**Timestamp**: 2026-09-28  
+**Context**: No personal contact list; quote sheet confirmed. Channel order skips personal → Kanboard/self-hosted GitHub communities.
+
+**Actions performed**:
+1. Locked quote sheet: `docs/launch/service-quote-sheet-v1.md`
+2. Set repo homepage `https://frankboard.com` + topics (kanboard, kanban, self-hosted, docker, …)
+3. Posted FrankBoard Announcements discussion #4
+4. Posted respectful Kanboard Show and tell discussion #5911
+
+**Results**:
+- https://github.com/ZFireMedia/FrankBoard/discussions/4
+- https://github.com/orgs/kanboard/discussions/5911
+
+**Next steps**: Monitor replies/email; optional Reddit later; defer HN
+
+**Summary stats**: 35 log entries | Soft launch GitHub outreach started

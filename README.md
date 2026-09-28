@@ -2,11 +2,15 @@
 
 A modernization fork of [Kanboard](https://github.com/kanboard/kanboard) for cleaner, faster, more user-friendly self-hosted work boards for small teams.
 
-**Owner**: Frank Bryant
+**Site**: [frankboard.com](https://frankboard.com) · **Migrate**: [frankboard.com/migrate](https://frankboard.com/migrate/) · **Setup help**: support@zfiremedia.com
+
+**Owner**: Frank Bryant / ZFire Media
 
 ## What is FrankBoard?
 
 FrankBoard is based on Kanboard. It preserves Kanboard's core strengths—simplicity, stability, self-hosting, low operational overhead—while preparing for incremental modernization. FrankBoard does not aim to become a Jira clone.
+
+**Community** is free (this repo). Paid migration assistance and VPS/Docker setup are available via email (invoice first). See [docs/launch/service-quote-sheet-v1.md](docs/launch/service-quote-sheet-v1.md).
 
 ## VPS-First Docker Workflow
 
