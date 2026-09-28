@@ -55,7 +55,7 @@
 - **Codebase**: Wave 1 + Wave 2 + Wave 3 + Wave 4 CSS changes in repo; Kanboard v1.2.51 fork
 - **Origin**: `https://github.com/ZFireMedia/FrankBoard.git` (public)
 - **CI**: Daily Docker workflow schedule disabled; manual `workflow_dispatch` + tag/PR triggers preserved — see `docs/deployment/docker-workflow-status-v1.md`
-- **Runtime**: FrankBoard live on 66.179.208.122:8080 (frankboard:wave1 image); marketing site at frankboard.com (CTA/GitHub updates need site redeploy)
+- **Runtime**: FrankBoard live on 66.179.208.122:8080; marketing site at frankboard.com (redeployed 2026-09-28 with Migrate CTAs, ZFireMedia GitHub, support@zfiremedia.com)
 - **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2/3/4 implementation notes, business packaging (docs/business/), launch marketing (docs/marketing/), launch copy (docs/marketing-copy/), site architecture (docs/site/), QA (docs/qa/), soft launch (docs/launch/)
 
 ## Blockers
@@ -64,9 +64,9 @@
 
 ## Next Recommended Step
 
-1. Deploy updated marketing site to frankboard.com (GitHub URLs, Migrate CTAs, zfiremedia support email)
-2. Execute soft launch per docs/launch/ v1.1 — personal outreach first
-3. Sell services (setup/migration) under ZFireMedia as demand appears; Pro/Cloud remain waitlist/contact
+1. Execute soft launch per docs/launch/ v1.1 — personal outreach first
+2. Sell services (setup/migration) under ZFireMedia as demand appears; Pro/Cloud remain waitlist/contact
+3. Optional: Cloudflare Email Routing so support@frankboard.com forwards to support@zfiremedia.com
 
 ## Future Phases (Preview)
 

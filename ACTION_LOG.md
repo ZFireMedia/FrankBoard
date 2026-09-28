@@ -926,3 +926,24 @@ All meaningful actions during development are logged here.
 **Next steps**: Deploy marketing site; soft-launch outreach
 
 **Summary stats**: 32 log entries | Contact email → zfiremedia
+
+---
+
+### Action: Deploy site + retarget VPS origin to public repo
+
+**Timestamp**: 2026-09-28  
+**Context**: After contact-email switch, live frankboard.com still served old CTAs; VPS origin still pointed at private zfiremedia-stack remote.
+
+**Actions performed**:
+1. Set VPS `origin` to `https://github.com/ZFireMedia/FrankBoard.git` (tokenless public HTTPS)
+2. Fast-forward `/root/frankboard` to `266eb85b4`
+3. Ran `scripts/deploy-site.sh` — site + nginx configs reloaded
+4. Verified live homepage/pricing use `mailto:support@zfiremedia.com` and Migrate-primary CTAs
+
+**Security note**: Previous VPS origin URL embedded a GitHub PAT. Remote cleaned; **revoke that PAT in GitHub** if still active.
+
+**Results**: Marketing site live with ZFireMedia GitHub + support email.
+
+**Next steps**: Soft-launch outreach; optional brand alias `support@frankboard.com` → forward later
+
+**Summary stats**: 33 log entries | Site deployed with zfiremedia contact
