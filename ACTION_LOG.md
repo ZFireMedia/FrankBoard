@@ -631,4 +631,278 @@ All meaningful actions during development are logged here.
 
 ---
 
-**Summary stats**: 20 log entries | Static site deployed to frankboard.com
+### Action: QA System v1 — FrankBoard QA Agent System
+
+**Timestamp**: 2025-03-16  
+**Context**: Establish structured QA/testing system for consistent testing, bug logging, and launch readiness.
+
+**Actions performed**:
+1. **docs/qa/qa-strategy-v1.md** — QA goals, testing layers, manual vs automation, surfaces, bug prioritization
+2. **docs/qa/manual-qa-playbook-v1.md** — Exact app flows (login, dashboard, board, task, search, admin, theme), site flows (homepage, six pages, CTAs, assets), recording, pass/fail, blockers
+3. **docs/qa/core-regression-checklist-v1.md** — Login, project create/edit, board view, task create/edit/detail, search/filter, admin/settings, theme/responsive, navigation
+4. **docs/qa/launch-readiness-checklist-v1.md** — All public pages, nav/footer, CTAs, contact, metadata/favicon, app/site boundary, SSL
+5. **docs/qa/bug-report-template-v1.md** — Title, severity, environment, steps, expected/actual, screenshot, notes
+6. **docs/qa/test-run-log-template-v1.md** — Date, env, tester, scope, pass/fail summary, blockers, follow-ups
+7. **docs/qa/automation-roadmap-v1.md** — Top automation candidates (login→board→task), Playwright/Cypress direction, what to wait on, what not to overbuild
+8. Updated PROJECT_STATUS.md, ACTION_LOG.md
+
+**Files affected**:
+- docs/qa/*.md (7 new files)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**Assumptions**: Manual QA first; no automation in v1; staging URL (66.179.208.122:8080) and frankboard.com are canonical; test credentials (admin/pass123) stable.
+
+**Results**: QA system ready for immediate use. Playbook and checklists aligned with product/site reality.
+
+**Next steps**: Run manual QA per playbook before next deploy; use bug template for any issues; consider automation when regression history justifies.
+
+---
+
+### Action: FrankBoard QA Test Run 001
+
+**Timestamp**: 2025-03-13  
+**Context**: First full manual QA pass per docs/qa/; produce bug list and prioritized fix queue.
+
+**Actions performed**:
+1. Tested marketing site (frankboard.com) — Home, Editions, Migrate, Why, Pricing, Support: all 200 OK
+2. Verified robots.txt — 200, Sitemap ref present
+3. Verified sitemap.xml — **500 Internal Server Error** (BUG-002)
+4. Tested app.frankboard.com — **403 Forbidden** (BUG-001)
+5. Tested staging app (66.179.208.122:8080) — Dashboard, board view load; core nav functional
+6. Created docs/qa/test-run-001.md — date, env, scope, pass/fail, blockers, readiness
+7. Created docs/qa/bug-log-001.md — BUG-001 (P0), BUG-002 (P1) with reproduction steps
+8. Created docs/qa/fix-priority-queue-001.md — ordered fixes, before-launch vs can-wait
+9. Updated PROJECT_STATUS.md — blockers, next steps
+10. Updated ACTION_LOG.md (this entry)
+
+**Findings**: 2 bugs. Marketing site content/nav pass. App at staging works; app.frankboard.com blocked. Sitemap broken.
+
+**Files affected**:
+- docs/qa/test-run-001.md (new)
+- docs/qa/bug-log-001.md (new)
+- docs/qa/fix-priority-queue-001.md (new)
+- PROJECT_STATUS.md (updated)
+- ACTION_LOG.md (updated)
+
+**Next steps**: Fix BUG-001 and BUG-002 per fix-priority-queue-001.md; re-run QA.
+
+---
+
+### Action: Fix app.frankboard.com nginx routing and remove dev.zfiremedia.com
+
+**Timestamp**: 2025-03-16  
+**Context**: BUG-001 — app.frankboard.com returned 403. Clean up unused dev.zfiremedia.com nginx config; add app subdomain reverse proxy.
+
+**Actions performed**:
+1. Inspected /etc/nginx/sites-enabled and sites-available on VPS
+2. Removed dev.zfiremedia.com — deleted symlink from sites-enabled and config file from sites-available (resolved nginx conflicting server_name warnings)
+3. Copied config/nginx/app.frankboard.com.conf to /etc/nginx/sites-available and enabled via symlink
+4. nginx -t passed (no warnings); systemctl reload nginx
+5. Verified: curl -H "Host: app.frankboard.com" http://127.0.0.1/ → 302 to /login (app response, not 403)
+6. Verified: frankboard.com still returns 301 to HTTPS
+7. Updated deploy-site.sh — now installs app.frankboard.com.conf on deploy
+8. Created docs/deployment/app-subdomain-routing-fix-v1.md
+9. Updated PROJECT_STATUS.md, ACTION_LOG.md
+
+**Proxy target**: http://127.0.0.1:8080 (FrankBoard Docker container frankboard, port 0.0.0.0:8080->80/tcp)
+
+**Files affected**:
+- scripts/deploy-site.sh (added app config install)
+- config/nginx/app.frankboard.com.conf (removed outdated comment)
+- docs/deployment/app-subdomain-routing-fix-v1.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**SSL follow-up**: Config listens on port 80 only. HTTPS requests (e.g. https://app.frankboard.com) may hit default/other block until certbot SSL is added for app.frankboard.com. Documented in app-subdomain-routing-fix-v1.md.
+
+**Results**: HTTP routing correct. BUG-001 resolved for HTTP. Browser 403 on HTTPS expected until SSL configured.
+
+---
+
+### Action: Add SSL for app.frankboard.com (certbot)
+
+**Timestamp**: 2025-03-16  
+**Context**: User requested certbot to enable HTTPS for app.frankboard.com.
+
+**Actions performed**:
+1. Ran `certbot --nginx -d app.frankboard.com --non-interactive --agree-tos` on VPS
+2. Certificate issued and deployed to app.frankboard.com.conf
+3. Certificate path: /etc/letsencrypt/live/app.frankboard.com/ (expires 2026-06-14)
+4. Verified https://app.frankboard.com — login page loads
+
+**Files affected**:
+- docs/deployment/app-subdomain-routing-fix-v1.md (SSL section updated)
+- PROJECT_STATUS.md, docs/qa/bug-log-001.md
+
+**Results**: app.frankboard.com fully working over HTTPS. BUG-001 fully resolved.
+
+---
+
+### Action: QA Test Run 002 (re-run)
+
+**Timestamp**: 2025-03-16  
+**Context**: Re-run full QA pass after BUG-001 fix (app.frankboard.com nginx + certbot SSL).
+
+**Actions performed**:
+1. Tested marketing site — Home, Editions, Migrate, Why, Pricing, Support: all 200 OK
+2. Verified robots.txt — 200, Sitemap ref present
+3. Verified sitemap.xml — **500 Internal Server Error** (BUG-002 still open)
+4. Tested app.frankboard.com — Login page loads over HTTPS; admin/pass123 → dashboard; board view loads (columns Backlog, Ready, WIP, Done)
+5. Created docs/qa/test-run-002.md
+6. Updated docs/qa/bug-log-001.md (BUG-001 status → Fixed)
+7. Updated docs/qa/fix-priority-queue-001.md (BUG-001 done, BUG-002 remaining)
+8. Updated PROJECT_STATUS.md
+
+**Results**: BUG-001 fully resolved. BUG-002 remains only P1 blocker. App and site otherwise pass.
+
+**Files affected**:
+- docs/qa/test-run-002.md (new)
+- docs/qa/bug-log-001.md, fix-priority-queue-001.md (updated)
+- PROJECT_STATUS.md
+
+---
+
+### Action: QA Test Run 003 — Closeout Verification
+
+**Timestamp**: 2025-03-16  
+**Context**: Verify sitemap fixed and FrankBoard free of P0/P1 launch blockers.
+
+**Actions performed**:
+1. Verified frankboard.com and all six marketing pages — 200 OK
+2. Verified robots.txt — 200, Sitemap ref present
+3. Verified sitemap.xml — user confirmed works in browser
+4. Verified app.frankboard.com — HTTPS, login → dashboard
+5. Confirmed no P0/P1 blockers remain
+6. Created docs/qa/test-run-003.md; updated bug-log-001, fix-priority-queue-001, PROJECT_STATUS, ACTION_LOG
+
+**Results**: Launch-ready. All acceptance criteria met.
+
+**Files affected**:
+- docs/qa/test-run-003.md (new)
+- docs/qa/bug-log-001.md, fix-priority-queue-001.md, PROJECT_STATUS.md, ACTION_LOG.md
+
+---
+
+### Action: FrankBoard Soft Launch Pack v1
+
+**Timestamp**: 2025-03-16  
+**Context**: Create first soft-launch operations pack for controlled public exposure and early demand validation.
+
+**Actions performed**:
+1. Created docs/launch/soft-launch-strategy-v1.md — objective, phasing, success criteria, founder-speed constraints
+2. Created docs/launch/cta-strategy-v1.md — primary CTA (Get Community Free → GitHub), secondary CTAs
+3. Created docs/launch/outreach-targets-v1.md — target audiences (Kanboard users, small teams, ops leads), channels (HN, Reddit, Kanboard, personal network)
+4. Created docs/launch/announcement-copy-v1.md — one-liner, short, HN, Reddit, Twitter, email templates
+5. Created docs/launch/response-handling-v1.md — analytics, response handling for GitHub/issues/contact, SLA, logging
+6. Updated PROJECT_STATUS.md, ACTION_LOG.md
+
+**Results**: Soft launch pack ready. Founder can execute first outreach with minimal setup.
+
+**Files affected**:
+- docs/launch/soft-launch-strategy-v1.md (new)
+- docs/launch/cta-strategy-v1.md (new)
+- docs/launch/outreach-targets-v1.md (new)
+- docs/launch/announcement-copy-v1.md (new)
+- docs/launch/response-handling-v1.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+---
+
+### Action: Soft Launch Pack v1.1 — CTA and Channel Adjustment
+
+**Timestamp**: 2025-03-16  
+**Context**: Refine CTA strategy and channel order to optimize for migration/setup signal over generic free acquisition.
+
+**Actions performed**:
+1. Created docs/launch/soft-launch-strategy-v1.1.md — metrics updated for migration/setup; Get Community tertiary
+2. Created docs/launch/cta-strategy-v1.1.md — Primary: Migrate from Kanboard; Secondary: Request setup help; Tertiary: Get Community Free
+3. Created docs/launch/outreach-targets-v1.1.md — Channel order: 1) Direct/personal, 2) Kanboard/self-hosted, 3) Reddit, 4) HN (later)
+4. Created docs/launch/announcement-copy-v1.1.md — Messaging emphasizes migration, setup help; email template leads with migration
+5. Updated PROJECT_STATUS.md, ACTION_LOG.md
+
+**CTA hierarchy**:
+- Primary: Migrate from Kanboard → /migrate/
+- Secondary: Request setup help → mailto:support@frankboard.com
+- Tertiary: Get Community Free → GitHub
+
+**Channel order**: Personal first → Kanboard/self-hosted → Reddit → HN (defer until ready)
+
+**Files affected**:
+- docs/launch/soft-launch-strategy-v1.1.md, cta-strategy-v1.1.md, outreach-targets-v1.1.md, announcement-copy-v1.1.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+---
+
+### Action: Disable daily Docker GitHub workflow schedule
+
+**Timestamp**: 2025-03-16  
+**Context**: Daily Docker workflow (`multiplatform-build`) failing; FrankBoard uses VPS deploy, not published images. Reduce CI noise.
+
+**Actions performed**:
+1. Edited `.github/workflows/docker.yml` — removed `schedule` (`cron: '0 1 * * *'`)
+2. Added `workflow_dispatch` for manual runs from Actions tab
+3. Preserved `push` (tags `v*.*.*`) and `pull_request` (main) unchanged
+4. Created `docs/deployment/docker-workflow-status-v1.md` — original triggers, changes, reactivation notes
+5. Updated PROJECT_STATUS.md, ACTION_LOG.md
+
+**Files affected**:
+- .github/workflows/docker.yml
+- docs/deployment/docker-workflow-status-v1.md (new)
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**Manual use**: Actions → Docker → Run workflow. No daily scheduled run.
+
+---
+
+## 2026-07-10
+
+### Action: Launch readiness review (fresh chat reconstruction)
+
+**Timestamp**: 2026-07-10  
+**Context**: User requested launch-readiness report after prior chat context was lost. Review only; no product/code changes.
+
+**Actions performed**:
+1. Reviewed PROJECT_STATUS, ACTION_LOG, QA closeout (Runs 001–003), launch pack v1.1, site/nginx/deploy scripts
+2. Live HTTP checks: frankboard.com (6 pages + robots/sitemap/assets), app.frankboard.com, staging :8080 — all 200
+3. SSL check: Cloudflare cert CN=frankboard.com expires 2026-08-11 (~32 days)
+4. GitHub CTA probe: public API 404; git smart-http 401 → repo private / not publicly cloneable
+5. Confirmed homepage still leads with “Get Community Free” (v1 CTA), not Migrate-primary (v1.1)
+6. Noted large uncommitted working tree (QA/launch/marketing docs + nginx/deploy follow-ups)
+
+**Results**: Soft-launch **not fully ready** until GitHub Community distribution is public (or CTAs retargeted). Site/app infrastructure otherwise healthy.
+
+**Next steps**:
+1. Make `ZFireMedia/FrankBoard` public (or fix all site GitHub links)
+2. Align homepage hero CTA with soft-launch v1.1 (Migrate primary)
+3. Confirm `support@frankboard.com` is monitored
+4. Commit/push pending docs + deploy script changes
+5. Optional: quick core-regression re-pass (create project/task) before outreach
+
+---
+
+### Action: Public GitHub move + soft-launch CTA/docs push
+
+**Timestamp**: 2026-09-28  
+**Context**: Soft-launch blockers — private Community repo and homepage CTA mismatch. User directed use of new GitHub account `support@zfiremedia.com` (`ZFireMedia`).
+
+**Actions performed**:
+1. Connected Cursor SCM + authenticated `gh` as `ZFireMedia`
+2. Created public repo https://github.com/ZFireMedia/FrankBoard
+3. Retargeted site/docs GitHub URLs from `zfiremedia-stack/FrankBoard` → `ZFireMedia/FrankBoard`
+4. Homepage hero/footer CTAs aligned to soft-launch v1.1 (Migrate primary, setup help secondary, Community tertiary)
+5. DNS check: `frankboard.com` has SPF (GoDaddy efwd) but **no MX records** — `support@frankboard.com` unlikely to receive mail; `zfiremedia.com` has MX → `smtp.google.com`
+6. Commit + push pending launch/QA/docs/nginx/deploy changes to new public origin
+
+**Files affected**:
+- `site/*.html` (GitHub URLs + homepage CTA)
+- docs launch/marketing/deployment references
+- prior uncommitted QA/launch/nginx/deploy/workflow files
+- PROJECT_STATUS.md, ACTION_LOG.md
+
+**Results**: Public Community distribution URL ready at ZFireMedia/FrankBoard. Email inbox for frankboard.com still broken (no MX).
+
+**Next steps**:
+1. Add MX (or Cloudflare Email Routing) for frankboard.com / support@
+2. Deploy updated marketing site to frankboard.com
+3. Begin soft-launch outreach
+
+**Summary stats**: 31 log entries | Public GitHub + CTA alignment

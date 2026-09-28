@@ -1,7 +1,8 @@
 name: Docker
+# Daily schedule removed (2025-03-16): was failing multiplatform-build and FrankBoard uses VPS deploy, not published images.
+# Re-add schedule if automated nightly builds are needed. See docs/deployment/docker-workflow-status-v1.md
 on:
-  schedule:
-    - cron: '0 1 * * *'
+  workflow_dispatch:
   push:
     tags:
       - 'v*.*.*'

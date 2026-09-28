@@ -1,11 +1,13 @@
 # FrankBoard — Project Status
 
 **Owner**: Frank Bryant  
-**Last Updated**: 2025-03-15
+**Last Updated**: 2026-09-28
 
 ## Current Phase
 
-**Static site deployed to frankboard.com** — Marketing site live at frankboard.com. Six pages, plain HTML/CSS. Separate from app at app.frankboard.com. See `docs/site/site-deploy-execution-v1.md`, `docs/site/site-post-deploy-checklist-v1.md`.
+**Soft launch pack v1.1** — CTA and channel refinement. Primary CTA = Migrate; secondary = Setup help; tertiary = Get Community Free. Outreach order: personal first, Kanboard/self-hosted second, Reddit third, HN later. See `docs/launch/soft-launch-strategy-v1.1.md`, `cta-strategy-v1.1.md`, `outreach-targets-v1.1.md`, `announcement-copy-v1.1.md`.
+
+**Public GitHub**: https://github.com/ZFireMedia/FrankBoard (account email `support@zfiremedia.com`)
 
 ## Verified in Staging (VPS 66.179.208.122)
 
@@ -40,22 +42,31 @@
 | **Static launch site v1 implementation** | **2025-03-15** | **Home, Editions, Migrate, Why, Pricing, Support; `site/`; see `docs/site/site-build-notes-v1.md`** |
 | **Homepage card alignment refinement** | **2025-03-15** | **Desktop: benefits/trust/editions-teaser constrained to 720px, section titles centered; see `docs/site/homepage-alignment-pass-notes.md`** |
 | **Static site deployed to frankboard.com** | **2025-03-15** | **Nginx at /var/www/frankboard-site; www→apex redirect; app.frankboard.com config ready; see `docs/site/site-deploy-execution-v1.md`** |
+| **QA system v1** | **2025-03-16** | **Strategy, playbook, regression checklist, launch readiness, bug/test templates, automation roadmap; see `docs/qa/`** |
+| **QA Test Run 001** | **2025-03-13** | **Full manual pass; test-run-001, bug-log-001, fix-priority-queue-001; 2 bugs (P0: app 403, P1: sitemap 500)** |
+| **QA Test Run 002** | **2025-03-16** | **Re-run after BUG-001 fix; app.frankboard.com + SSL pass; BUG-002 (sitemap 500) still open; see test-run-002.md** |
+| **QA Test Run 003** | **2025-03-16** | **Closeout verification; BUG-002 fixed (sitemap user-verified); no P0/P1 blockers; launch-ready** |
+| **Soft launch pack v1** | **2025-03-16** | **Strategy, CTA, outreach targets, announcement copy, response handling; docs/launch/** |
+| **Soft launch pack v1.1** | **2025-03-16** | **CTA: Migrate primary, Setup help secondary, Get Community tertiary; channel order: personal → Kanboard → Reddit → HN** |
+| **Docker workflow schedule disabled** | **2025-03-16** | **Removed daily cron from docker.yml; added workflow_dispatch; see docs/deployment/docker-workflow-status-v1.md** |
 
 ## Current Repo/Runtime State
 
 - **Codebase**: Wave 1 + Wave 2 + Wave 3 + Wave 4 CSS changes in repo; Kanboard v1.2.51 fork
-- **Runtime**: FrankBoard live on 66.179.208.122:8080 (frankboard:wave1 image)
-- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2/3/4 implementation notes, business packaging (docs/business/), launch marketing (docs/marketing/), launch copy (docs/marketing-copy/), site architecture (docs/site/)
+- **Origin**: `https://github.com/ZFireMedia/FrankBoard.git` (public)
+- **CI**: Daily Docker workflow schedule disabled; manual `workflow_dispatch` + tag/PR triggers preserved — see `docs/deployment/docker-workflow-status-v1.md`
+- **Runtime**: FrankBoard live on 66.179.208.122:8080 (frankboard:wave1 image); marketing site at frankboard.com (CTA/GitHub updates need site redeploy)
+- **Documentation**: Architecture, deployment, product UX audit, roadmap, wave-1/2/3/4 implementation notes, business packaging (docs/business/), launch marketing (docs/marketing/), launch copy (docs/marketing-copy/), site architecture (docs/site/), QA (docs/qa/), soft launch (docs/launch/)
 
 ## Blockers
 
-- None
+- **Email**: `frankboard.com` has no MX records — `support@frankboard.com` mailto CTAs will not receive mail until MX/Email Routing is configured. `zfiremedia.com` MX is fine (Google).
 
 ## Next Recommended Step
 
-1. Verify frankboard.com in browser (DNS via Cloudflare); run Certbot if origin SSL needed for Full/Strict
-2. Enable app.frankboard.com when ready: `ln -s /etc/nginx/sites-available/app.frankboard.com.conf /etc/nginx/sites-enabled/` then `nginx -t && systemctl reload nginx`
-3. Complete post-deploy checklist per `docs/site/site-post-deploy-checklist-v1.md`
+1. Fix frankboard.com mail (MX or Cloudflare Email Routing for support@)
+2. Deploy updated marketing site (GitHub URLs + Migrate-primary CTAs)
+3. Execute soft launch per docs/launch/ v1.1 — personal outreach first
 
 ## Future Phases (Preview)
 

@@ -51,7 +51,7 @@ apt update && apt install -y docker.io docker-compose-plugin
 
 # Clone FrankBoard
 cd /root
-git clone https://github.com/zfiremedia-stack/FrankBoard.git frankboard
+git clone https://github.com/ZFireMedia/FrankBoard.git frankboard
 cd frankboard
 
 # Configure

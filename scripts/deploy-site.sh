@@ -23,7 +23,7 @@ find "$SITE_DEST" -type d -exec chmod 755 {} \;
 find "$SITE_DEST" -type f -exec chmod 644 {} \;
 echo "  -> $SITE_DEST"
 
-# Install nginx config if present
+# Install nginx configs if present
 if [ -f "$NGINX_CONF" ]; then
     echo "Installing nginx config..."
     cp "$NGINX_CONF" /etc/nginx/sites-available/frankboard.com.conf
@@ -33,6 +33,13 @@ if [ -f "$NGINX_CONF" ]; then
     echo "  -> sites-enabled/frankboard.com.conf"
 else
     echo "  (No nginx config at $NGINX_CONF — config may exist already)"
+fi
+APP_CONF="$REPO/config/nginx/app.frankboard.com.conf"
+if [ -f "$APP_CONF" ]; then
+    echo "Installing app subdomain config..."
+    cp "$APP_CONF" /etc/nginx/sites-available/app.frankboard.com.conf
+    ln -sf /etc/nginx/sites-available/app.frankboard.com.conf /etc/nginx/sites-enabled/
+    echo "  -> sites-enabled/app.frankboard.com.conf"
 fi
 
 # Test and reload nginx

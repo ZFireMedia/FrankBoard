@@ -47,7 +47,7 @@ All copy derived from `docs/marketing-copy/*.md`. Minor adjustments for HTML flo
 | `apple-touch-icon.png` | iOS home screen — optional for v1 |
 | `main.min.css` | Unminified main.css used; minification optional at deploy |
 | Pro/Cloud CTAs | `mailto:support@frankboard.com` — update when support channel is final |
-| GitHub URL | `https://github.com/zfiremedia-stack/FrankBoard` — confirm org/repo at launch |
+| GitHub URL | `https://github.com/ZFireMedia/FrankBoard` — confirm org/repo at launch |
 
 ---
 
