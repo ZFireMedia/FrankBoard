@@ -890,7 +890,7 @@ All meaningful actions during development are logged here.
 3. Retargeted site/docs GitHub URLs from `zfiremedia-stack/FrankBoard` → `ZFireMedia/FrankBoard`
 4. Homepage hero/footer CTAs aligned to soft-launch v1.1 (Migrate primary, setup help secondary, Community tertiary)
 5. DNS check: `frankboard.com` has SPF (GoDaddy efwd) but **no MX records** — `support@frankboard.com` unlikely to receive mail; `zfiremedia.com` has MX → `smtp.google.com`
-6. Commit + push pending launch/QA/docs/nginx/deploy changes to new public origin
+6. Commit + push pending launch/QA/docs/nginx/deploy changes to new public origin (`0bdbd9ee1` → `origin/main`)
 
 **Files affected**:
 - `site/*.html` (GitHub URLs + homepage CTA)
@@ -898,11 +898,11 @@ All meaningful actions during development are logged here.
 - prior uncommitted QA/launch/nginx/deploy/workflow files
 - PROJECT_STATUS.md, ACTION_LOG.md
 
-**Results**: Public Community distribution URL ready at ZFireMedia/FrankBoard. Email inbox for frankboard.com still broken (no MX).
+**Results**: Public Community distribution live at https://github.com/ZFireMedia/FrankBoard (200, private=false). Email inbox for frankboard.com still broken (no MX). Marketing site on VPS still needs redeploy for live CTA/GitHub URL updates.
 
 **Next steps**:
 1. Add MX (or Cloudflare Email Routing) for frankboard.com / support@
 2. Deploy updated marketing site to frankboard.com
 3. Begin soft-launch outreach
 
-**Summary stats**: 31 log entries | Public GitHub + CTA alignment
+**Summary stats**: 31 log entries | Public GitHub pushed
