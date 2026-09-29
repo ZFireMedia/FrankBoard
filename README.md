@@ -12,6 +12,14 @@ FrankBoard is based on Kanboard. It preserves Kanboard's core strengths—simpli
 
 **Community** is free (this repo). Paid migration assistance and VPS/Docker setup are available via email (invoice first). See [docs/launch/service-quote-sheet-v1.md](docs/launch/service-quote-sheet-v1.md).
 
+## Screenshots
+
+| Login | Board | Task detail |
+|-------|-------|-------------|
+| ![Login](site/assets/img/screenshots/login.png) | ![Board](site/assets/img/screenshots/board.png) | ![Task](site/assets/img/screenshots/task.png) |
+
+More on the site: [frankboard.com/#screenshots](https://frankboard.com/#screenshots)
+
 ## VPS-First Docker Workflow
 
 FrankBoard uses a **VPS-first** deployment model: the primary development and staging runtime is Docker on a VPS, not local Docker on the operator machine.

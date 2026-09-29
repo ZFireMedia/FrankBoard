@@ -49,6 +49,28 @@ body {
 .hero__subhead { font-size: 1.125rem; color: var(--text-secondary); margin: 0 0 var(--space-xl); max-width: var(--max-width); }
 .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-md); }
 
+.screenshots { padding: var(--space-3xl) 0; border-top: 1px solid var(--border); background: var(--bg-alt); }
+.screenshots__lead { text-align: center; color: var(--text-secondary); max-width: 40rem; margin: 0 auto var(--space-xl); }
+.screenshots__grid { display: grid; gap: var(--space-xl); }
+.screenshot { margin: 0; }
+.screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.screenshot figcaption {
+  margin-top: var(--space-sm);
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .container--wide { max-width: var(--max-width-wide); margin-left: auto; margin-right: auto; }
+}
+
 .benefits { padding: var(--space-3xl) 0; }
 .benefits .container { max-width: var(--max-width-wide); }
 @media (min-width: 768px) { .benefits .container { max-width: var(--max-width); margin-inline: auto; } }

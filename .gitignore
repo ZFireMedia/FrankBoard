@@ -26,6 +26,8 @@ data/config.php
 !docker/var/wwww/app/config.php
 .env
 node_modules
+.tmp-screenshots/
+.cursor/
 .phpunit.result.cache
 app/version.txt
 .php-cs-fixer.cache

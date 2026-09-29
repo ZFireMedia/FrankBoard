@@ -985,3 +985,36 @@ All meaningful actions during development are logged here.
 **Next steps**: Monitor replies/email; optional Reddit later; defer HN
 
 **Summary stats**: 35 log entries | Soft launch GitHub outreach started
+
+---
+
+### Action: Process FrankBoard inquiry — screenshot feedback
+
+**Timestamp**: 2026-09-29  
+**Context**: Hermann (heart1010@gmail.com) replied to Kanboard discussion #5911 via email: no screenshots/demo to compare FrankBoard vs Kanboard.
+
+**Actions performed**:
+1. Replied by email from support@zfiremedia.com (acknowledged gap; described UI diffs; promised screenshots soon)
+2. Posted public reply on https://github.com/kanboard/kanboard/discussions/5911#discussioncomment-18659791
+
+**Next steps**: Add screenshots to site + README (needs operator OK / capture from live app)
+
+**Summary stats**: 36 log entries | First community feedback handled
+
+---
+
+### Action: Add product screenshots to site + README
+
+**Timestamp**: 2026-09-29  
+**Context**: Hermann asked for screenshots vs Kanboard. Authorized to capture from live app and publish.
+
+**Actions performed**:
+1. Captured login, dashboard, board, task screenshots from app.frankboard.com
+2. Added `site/assets/img/screenshots/` + homepage `#screenshots` gallery
+3. Updated GitHub README screenshot section
+4. Followed up by email and on Kanboard discussion #5911
+5. Note: admin password temporarily reset for capture (`FrankBoardShot1!`); failed-login/CAPTCHA cleared
+
+**Next steps**: Deploy site; operator may want to set a new admin password
+
+**Summary stats**: 37 log entries | Screenshots published
