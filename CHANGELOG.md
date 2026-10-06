@@ -2,9 +2,9 @@
 
 All notable FrankBoard releases are documented here.
 
-## [1.1.0] — 2026-10-06
+## [frankboard-1.1.0] — 2026-10-06
 
-First tagged FrankBoard release (soft-launch baseline).
+First tagged FrankBoard product release (`frankboard-1.1.0`). Tag name avoids colliding with upstream Kanboard’s historic `v1.1.0`.
 
 ### Added
 

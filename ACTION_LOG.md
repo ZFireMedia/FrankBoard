@@ -1115,12 +1115,15 @@ All meaningful actions during development are logged here.
 1. Added `docs/product/differences-from-kanboard.md` (fork differences list)
 2. Linked differences from README; added `(fork of Kanboard)` wording
 3. Added `CHANGELOG.md` for v1.1.0
-4. Tagged and published GitHub Release `v1.1.0`
+4. Deleted mistaken GitHub Release on upstream Kanboard tag `v1.1.0` (2017)
+5. Tagged and published GitHub Release `frankboard-1.1.0` on current main
 
 **Files affected**:
 - `docs/product/differences-from-kanboard.md` (new)
 - `README.md`, `CHANGELOG.md`, `ACTION_LOG.md`
 
+**Results**: https://github.com/ZFireMedia/FrankBoard/releases/tag/frankboard-1.1.0 — eligibility clock starts 2026-10-06 (~2027-02-06)
+
 **Next steps**: Human ASH submission after first release is ≥4 months old (~Feb 2027)
 
-**Summary stats**: 42 log entries | v1.1.0 released
+**Summary stats**: 42 log entries | frankboard-1.1.0 released
