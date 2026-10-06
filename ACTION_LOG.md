@@ -1018,3 +1018,109 @@ All meaningful actions during development are logged here.
 **Next steps**: Deploy site; operator may want to set a new admin password
 
 **Summary stats**: 37 log entries | Screenshots published
+
+---
+
+### Action: Expand GitHub outreach; mute old-stack CI noise
+
+**Timestamp**: 2026-10-01  
+**Context**: Operator: no Reddit; post elsewhere on GitHub; kill unused zfiremedia-stack if useless.
+
+**Actions performed**:
+1. Disabled Docker + Codeberg Mirror workflows on `ZFireMedia/FrankBoard`
+2. Removed local `old-origin` remote (`zfiremedia-stack/FrankBoard`)
+3. Trashed 11 `[zfiremedia-stack/FrankBoard]` Docker failure threads in support Gmail
+4. Posted Kanboard discussion replies: #5188 (live fork ask), #5649 (backup/migrate tip), #5472 (direction)
+5. Opened FrankBoard Show and tell discussion #5; enabled Discussions
+6. Created profile README `ZFireMedia/ZFireMedia` + public gist
+7. Expanded repo topics (`trello-alternative` added)
+8. Attempted Gmail filter for stack CI — create_filter blocked (403 upscoping); awesome-selfhosted PR skipped (repo forbids LLM submissions)
+
+**Blocked**: `zfiremedia-stack` is a separate GitHub **user** account. `ZFireMedia` gets 404 on that repo — cannot disable schedules or delete it from current auth. Daily Docker emails will continue until that account disables Actions or deletes the private repo.
+
+**Results**:
+- https://github.com/ZFireMedia/FrankBoard/discussions/5
+- https://github.com/kanboard/kanboard/discussions/5188#discussioncomment-18704663
+- https://github.com/kanboard/kanboard/discussions/5649#discussioncomment-18704664
+- https://github.com/kanboard/kanboard/discussions/5472#discussioncomment-18704677
+- https://gist.github.com/ZFireMedia/b4a3f8328baddd8dcc3ca816827da4fe
+- https://github.com/ZFireMedia
+
+**Next steps**: Log into `zfiremedia-stack` GitHub account → disable Docker workflow or delete private FrankBoard repo; optional Gmail filter by hand
+
+**Summary stats**: 38 log entries | GitHub outreach expanded; stack kill blocked on other account
+
+---
+
+### Action: Business check (Oct 2)
+
+**Timestamp**: 2026-10-02  
+**Context**: Operator asked to check the business.
+
+**Findings**:
+- Site/app healthy: frankboard.com 200, migrate/pricing 200, app 302→login
+- GitHub: 1 star (Heart1010), 0 forks, no new discussion replies on #4/#5 or Kanboard threads since our posts
+- Inbox: no new FrankBoard leads; Hermann silent after screenshots; ops noise = Workspace invoice, Netlify $5, Reddit Ads pitches
+- Revenue: $0 new FrankBoard sales/quotes this period
+- VPS SSH via `frankboard-vps` host alias failed DNS from this shell; IP check attempted separately
+
+**Next steps**: Stand by for inbound; stack account still needs manual kill for leftover CI mail
+
+**Summary stats**: 39 log entries | Quiet soft-launch week
+
+---
+
+### Action: Business check (Oct 3)
+
+**Timestamp**: 2026-10-03  
+**Context**: Operator asked to check the business.
+
+**Findings**:
+- Site: frankboard.com / migrate / pricing 200
+- App: investigated separately (redirect/login path)
+- GitHub: still 1 star (Heart1010), 0 forks; Oct 2 traffic 0 views / 2 clones; no new discussion replies
+- Inbox: no new FrankBoard leads; Hermann still silent; NowButtons receipt + Workspace invoice noise; fresh zfiremedia-stack Docker fail (trashed)
+- Revenue: $0 new quotes/sales
+
+**Next steps**: Stand by; kill zfiremedia-stack CI from that account when available
+
+**Summary stats**: 40 log entries | Still quiet
+
+---
+
+### Action: Business check (Oct 6)
+
+**Timestamp**: 2026-10-06  
+**Context**: Operator asked to check the business.
+
+**Findings**:
+- Site/app healthy: frankboard.com / migrate / pricing / login all 200
+- GitHub: **2 stars** (Heart1010 + new `helioguardabaxo`); Oct 4–5 light traffic (4+3 views); no discussion replies
+- Inbox: no FrankBoard leads; Hermann silent; 3× zfiremedia-stack Docker fails (trashed)
+- Non-FB mail: NowButtons refund done; Brevo “SideHustles” API key created Oct 4; Search Console for other property
+- Revenue: $0 new FrankBoard quotes/sales
+
+**Next steps**: Stand by; stack account still needs kill for daily CI
+
+**Summary stats**: 41 log entries | +1 star, still no leads
+
+---
+
+### Action: Tag FrankBoard v1.1.0 (awesome-selfhosted clock)
+
+**Timestamp**: 2026-10-06  
+**Context**: Operator approved Phase A for awesome-selfhosted — first tagged release starts the 4-month eligibility clock (~2027-02-06).
+
+**Actions performed**:
+1. Added `docs/product/differences-from-kanboard.md` (fork differences list)
+2. Linked differences from README; added `(fork of Kanboard)` wording
+3. Added `CHANGELOG.md` for v1.1.0
+4. Tagged and published GitHub Release `v1.1.0`
+
+**Files affected**:
+- `docs/product/differences-from-kanboard.md` (new)
+- `README.md`, `CHANGELOG.md`, `ACTION_LOG.md`
+
+**Next steps**: Human ASH submission after first release is ≥4 months old (~Feb 2027)
+
+**Summary stats**: 42 log entries | v1.1.0 released
