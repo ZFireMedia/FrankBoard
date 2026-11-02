@@ -30,7 +30,7 @@
         "pimple/pimple": "3.6.2",
         "psr/log": "1.1.4",
         "symfony/console": "5.4.41",
-        "symfony/event-dispatcher-contracts": "^2",
+        "symfony/event-dispatcher-contracts": "^3",
         "symfony/finder": "5.4.45",
         "symfony/service-contracts": "2.5.4",
         "symfony/string": "^5.1",
